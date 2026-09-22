@@ -1,14 +1,16 @@
+```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta name="description" content="Manual de Prescrição MEDx: 111 condutas organizadas para transformar raciocínio clínico em decisão prática.">
-
-  <meta name="theme-color" content="#FCFCFA">
-
   <title>Manual de Prescrição MEDx | Raciocínio clínico para a prática</title>
+
+  <meta
+    name="description"
+    content="Manual de Prescrição MEDx: 111 condições organizadas para transformar raciocínio clínico em conduta prática, com diagnóstico, decisão, dose, alertas e exemplos de prescrição."
+  >
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,32 +21,33 @@
   >
 
   <style>
-
     :root {
       --bg: #FCFCFA;
       --surface: #FFFFFF;
-      --surface-soft: #F3F5F1;
+      --surface-soft: #F3F7F4;
 
       --ink: #15160F;
       --ink-soft: #4A4A44;
-      --muted: #777A72;
-
-      --line: #E3E6DF;
+      --muted: #777871;
 
       --green-deep: #00733F;
       --green: #00A95C;
       --green-bright: #00D084;
-      --green-soft: #DDF8EC;
+      --green-light: #DDF8EC;
 
-      --dark: #10130F;
-      --white: #FFFFFF;
+      --line: #DDE3DE;
 
-      --shadow: 0 20px 60px rgba(17, 31, 22, 0.08);
+      --dark: #101713;
+      --dark-soft: #17221C;
 
-      --radius: 24px;
-      --radius-small: 14px;
+      --shadow:
+        0 20px 60px rgba(16, 23, 19, 0.08);
 
-      --max: 1180px;
+      --radius-lg: 28px;
+      --radius-md: 18px;
+      --radius-sm: 12px;
+
+      --max: 1160px;
     }
 
     * {
@@ -58,9 +61,9 @@
     }
 
     body {
+      font-family: "IBM Plex Sans", sans-serif;
       background: var(--bg);
       color: var(--ink);
-      font-family: "IBM Plex Sans", Arial, sans-serif;
       line-height: 1.55;
       -webkit-font-smoothing: antialiased;
     }
@@ -80,22 +83,15 @@
       margin: 0 auto;
     }
 
-    .serif {
-      font-family: "Fraunces", Georgia, serif;
-    }
-
-
-    /* =========================
-       NAV
-    ========================= */
+    /* NAV */
 
     .nav {
       position: sticky;
       top: 0;
-      z-index: 50;
+      z-index: 100;
+      background: rgba(252, 252, 250, 0.92);
       backdrop-filter: blur(14px);
-      background: rgba(252, 252, 250, 0.88);
-      border-bottom: 1px solid rgba(227, 230, 223, 0.8);
+      border-bottom: 1px solid rgba(221, 227, 222, 0.75);
     }
 
     .nav-inner {
@@ -111,30 +107,33 @@
       align-items: center;
       gap: 10px;
       font-weight: 700;
-      letter-spacing: -0.03em;
-      color: var(--ink);
+      letter-spacing: -0.02em;
     }
 
     .brand-mark {
-      width: 30px;
-      height: 30px;
-      border-radius: 9px;
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
       background: var(--green-bright);
       display: grid;
       place-items: center;
       color: var(--dark);
-      font-size: 13px;
+      font-size: 14px;
       font-weight: 800;
     }
 
-    .brand span {
+    .brand-text {
       font-size: 17px;
     }
 
     .nav-link {
       font-size: 14px;
-      color: var(--ink-soft);
       font-weight: 600;
+      color: var(--ink-soft);
+    }
+
+    .nav-link:hover {
+      color: var(--green-deep);
     }
 
     .nav-cta {
@@ -144,9 +143,9 @@
       padding: 11px 18px;
       border-radius: 999px;
       background: var(--dark);
-      color: white;
-      font-size: 13px;
-      font-weight: 700;
+      color: white !important;
+      font-size: 14px;
+      font-weight: 600;
       transition: transform .2s ease, background .2s ease;
     }
 
@@ -155,26 +154,24 @@
       background: var(--green-deep);
     }
 
-
-    /* =========================
-       BUTTONS
-    ========================= */
+    /* BUTTONS */
 
     .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
       min-height: 54px;
       padding: 0 25px;
       border-radius: 999px;
-      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
       font-size: 15px;
-      border: 1px solid transparent;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
       transition:
         transform .2s ease,
         box-shadow .2s ease,
         background .2s ease;
-      cursor: pointer;
     }
 
     .btn:hover {
@@ -184,11 +181,11 @@
     .btn-primary {
       background: var(--green-bright);
       color: var(--dark) !important;
-      box-shadow: 0 12px 28px rgba(0, 208, 132, 0.18);
+      box-shadow: 0 12px 28px rgba(0, 208, 132, 0.20);
     }
 
     .btn-primary:hover {
-      box-shadow: 0 16px 34px rgba(0, 208, 132, 0.25);
+      background: #16e79a;
     }
 
     .btn-dark {
@@ -196,240 +193,229 @@
       color: white !important;
     }
 
+    .btn-dark:hover {
+      background: var(--green-deep);
+    }
+
     .btn-light {
       background: white;
       color: var(--dark) !important;
     }
 
-
-    /* =========================
-       HERO
-    ========================= */
+    /* HERO */
 
     .hero {
+      padding: 90px 0 80px;
       position: relative;
       overflow: hidden;
-      padding: 92px 0 86px;
     }
 
     .hero::before {
       content: "";
       position: absolute;
-      width: 540px;
-      height: 540px;
-      right: -220px;
-      top: -220px;
-      background: radial-gradient(
-        circle,
-        rgba(0,208,132,.12),
-        transparent 68%
-      );
+      width: 520px;
+      height: 520px;
+      border-radius: 50%;
+      background: rgba(0, 208, 132, 0.07);
+      filter: blur(20px);
+      top: -260px;
+      right: -160px;
       pointer-events: none;
     }
 
     .hero-grid {
       display: grid;
       grid-template-columns: 1.08fr .92fr;
-      gap: 70px;
       align-items: center;
+      gap: 70px;
     }
 
     .eyebrow {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      color: var(--green-deep);
       font-size: 12px;
-      font-weight: 800;
-      letter-spacing: .12em;
+      font-weight: 700;
+      letter-spacing: .13em;
+      color: var(--green-deep);
       text-transform: uppercase;
       margin-bottom: 20px;
     }
 
     .eyebrow::before {
       content: "";
-      width: 22px;
+      width: 24px;
       height: 2px;
       background: var(--green-bright);
     }
 
-    h1 {
-      font-family: "Fraunces", Georgia, serif;
+    .hero h1 {
+      font-family: "Fraunces", serif;
       font-size: clamp(46px, 6vw, 76px);
       line-height: .98;
-      letter-spacing: -.055em;
+      letter-spacing: -0.055em;
       font-weight: 600;
-      max-width: 760px;
+      max-width: 700px;
+      margin-bottom: 26px;
     }
 
     .hero h1 em {
-      color: var(--green-deep);
       font-style: normal;
+      color: var(--green-deep);
     }
 
-    .hero-sub {
-      margin-top: 27px;
-      max-width: 650px;
-      color: var(--ink-soft);
-      font-size: 19px;
+    .hero-copy {
+      font-size: 18px;
       line-height: 1.65;
+      color: var(--ink-soft);
+      max-width: 660px;
+      margin-bottom: 32px;
     }
 
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
-      margin-top: 32px;
+      margin-bottom: 25px;
     }
 
-    .microcopy {
-      margin-top: 15px;
-      font-size: 12px;
+    .hero-note {
+      font-size: 13px;
       color: var(--muted);
     }
 
     .hero-card {
-      position: relative;
       background: var(--dark);
       color: white;
-      border-radius: 28px;
-      padding: 34px;
-      box-shadow: var(--shadow);
+      border-radius: 30px;
+      padding: 32px;
+      position: relative;
+      box-shadow: 0 30px 80px rgba(16, 23, 19, .18);
       overflow: hidden;
     }
 
     .hero-card::after {
       content: "";
       position: absolute;
-      width: 260px;
-      height: 260px;
+      width: 220px;
+      height: 220px;
       border-radius: 50%;
-      background: rgba(0,208,132,.13);
-      right: -100px;
-      bottom: -100px;
+      background: var(--green-bright);
+      opacity: .13;
+      filter: blur(4px);
+      right: -90px;
+      top: -90px;
+    }
+
+    .hero-card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      margin-bottom: 42px;
     }
 
     .hero-card-label {
-      color: var(--green-bright);
       font-size: 11px;
-      font-weight: 800;
-      letter-spacing: .13em;
+      font-weight: 700;
+      letter-spacing: .12em;
+      color: #B5C2BA;
       text-transform: uppercase;
-      margin-bottom: 22px;
+    }
+
+    .hero-card-number {
+      color: var(--green-bright);
+      font-size: 12px;
+      font-weight: 700;
     }
 
     .hero-card h2 {
-      font-family: "Fraunces", Georgia, serif;
-      font-size: 34px;
-      line-height: 1.08;
+      font-family: "Fraunces", serif;
+      font-weight: 600;
+      font-size: 37px;
+      line-height: 1.05;
       letter-spacing: -.035em;
-      max-width: 390px;
-      color: white;
+      margin-bottom: 34px;
+      position: relative;
+      z-index: 2;
     }
 
     .decision-chain {
-      margin-top: 30px;
       display: grid;
-      gap: 9px;
+      gap: 0;
       position: relative;
       z-index: 2;
     }
 
     .decision-item {
-      display: flex;
-      align-items: center;
+      display: grid;
+      grid-template-columns: 36px 1fr;
       gap: 13px;
-      padding: 12px 14px;
-      border: 1px solid rgba(255,255,255,.12);
-      border-radius: 12px;
-      background: rgba(255,255,255,.045);
-      color: white;
+      align-items: center;
+      min-height: 58px;
+      border-top: 1px solid rgba(255,255,255,.12);
+    }
+
+    .decision-item:last-child {
+      border-bottom: 1px solid rgba(255,255,255,.12);
+    }
+
+    .decision-number {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--green-bright);
+    }
+
+    .decision-text {
       font-size: 14px;
       font-weight: 600;
     }
 
-    .decision-number {
-      width: 27px;
-      height: 27px;
-      border-radius: 50%;
-      background: var(--green-bright);
-      color: var(--dark);
-      display: grid;
-      place-items: center;
-      font-size: 11px;
-      font-weight: 800;
-      flex: 0 0 auto;
-    }
-
-
-    /* =========================
-       DIVIDER
-    ========================= */
-
-    .pulse {
-      height: 1px;
-      background: var(--line);
-      position: relative;
-    }
-
-    .pulse::after {
-      content: "";
-      position: absolute;
-      left: 50%;
-      top: -3px;
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--green-bright);
-    }
-
-
-    /* =========================
-       GENERAL SECTIONS
-    ========================= */
+    /* SECTIONS */
 
     section {
-      padding: 105px 0;
+      scroll-margin-top: 90px;
     }
 
-    .section-head {
-      max-width: 760px;
-      margin-bottom: 55px;
+    .section {
+      padding: 100px 0;
     }
 
-    .section-kicker {
-      color: var(--green-deep);
-      text-transform: uppercase;
-      letter-spacing: .12em;
-      font-size: 11px;
-      font-weight: 800;
-      margin-bottom: 14px;
+    .section-soft {
+      background: var(--surface-soft);
     }
 
-    h2.section-title {
-      font-family: "Fraunces", Georgia, serif;
-      font-size: clamp(37px, 5vw, 58px);
-      line-height: 1.04;
-      letter-spacing: -.045em;
-      font-weight: 600;
-      color: var(--ink);
+    .section-dark {
+      background: var(--dark);
+      color: white;
     }
 
     .section-intro {
-      margin-top: 18px;
+      max-width: 720px;
+      margin-bottom: 52px;
+    }
+
+    .section-intro h2 {
+      font-family: "Fraunces", serif;
+      font-size: clamp(38px, 5vw, 58px);
+      line-height: 1.02;
+      letter-spacing: -.045em;
+      font-weight: 600;
+      margin-bottom: 18px;
+    }
+
+    .section-intro p {
       font-size: 17px;
+      line-height: 1.65;
       color: var(--ink-soft);
-      max-width: 700px;
+      max-width: 690px;
     }
 
-
-    /* =========================
-       PROBLEM
-    ========================= */
-
-    .problem {
-      background: var(--surface);
+    .section-dark .section-intro p {
+      color: #B8C2BC;
     }
+
+    /* PROBLEM */
 
     .problem-grid {
       display: grid;
@@ -438,540 +424,473 @@
       align-items: start;
     }
 
-    .problem-lead {
-      font-family: "Fraunces", Georgia, serif;
-      font-size: 32px;
-      line-height: 1.15;
-      letter-spacing: -.03em;
+    .problem-title {
+      font-family: "Fraunces", serif;
+      font-size: clamp(38px, 4.5vw, 55px);
+      line-height: 1.02;
+      letter-spacing: -.045em;
+      font-weight: 600;
+    }
+
+    .problem-title em {
+      color: var(--green-deep);
+      font-style: normal;
+    }
+
+    .problem-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .problem-card {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      padding: 25px 26px;
       color: var(--ink);
     }
 
-    .problem-lead span {
-      color: var(--green-deep);
-    }
-
-    .pain-list {
-      display: grid;
-      gap: 15px;
-    }
-
-    .pain {
-      border-top: 1px solid var(--line);
-      padding: 21px 0;
-      display: grid;
-      grid-template-columns: 45px 1fr;
-      gap: 18px;
-      color: var(--ink);
-    }
-
-    .pain:last-child {
-      border-bottom: 1px solid var(--line);
-    }
-
-    .pain-number {
-      font-family: "Fraunces", Georgia, serif;
-      color: var(--green-deep);
-      font-size: 24px;
-    }
-
-    .pain strong {
+    .problem-card strong {
       display: block;
       font-size: 17px;
-      margin-bottom: 5px;
-      color: var(--ink);
+      margin-bottom: 7px;
     }
 
-    .pain p {
+    .problem-card p {
       color: var(--ink-soft);
       font-size: 15px;
+      line-height: 1.6;
     }
 
     .problem-transition {
-      margin-top: 48px;
-      padding: 28px 30px;
-      border-left: 3px solid var(--green-bright);
-      background: var(--surface-soft);
-      color: var(--ink-soft);
-      font-size: 17px;
+      margin-top: 25px;
+      color: var(--green-deep);
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 1.5;
     }
 
-
-    /* =========================
-       PILLARS
-    ========================= */
+    /* PILLARS */
 
     .pillars {
-      background: var(--surface-soft);
-    }
-
-    .pillar-grid {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
       gap: 12px;
     }
 
-    /* CORREÇÃO PRINCIPAL:
-       força texto escuro em todos os cards brancos */
     .pillar {
-      min-height: 225px;
       background: white;
-      color: var(--ink);
       border: 1px solid var(--line);
-      border-radius: var(--radius-small);
-      padding: 24px 20px;
+      border-radius: var(--radius-md);
+      padding: 26px 21px;
+      color: var(--ink);
+      min-height: 190px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
     }
 
     .pillar-number {
-      font-size: 11px;
-      font-weight: 800;
+      font-size: 12px;
+      font-weight: 700;
       color: var(--green-deep);
-      letter-spacing: .1em;
+      letter-spacing: .08em;
     }
 
     .pillar h3 {
-      font-family: "Fraunces", Georgia, serif;
-      font-size: 25px;
-      line-height: 1.05;
+      font-family: "Fraunces", serif;
+      font-size: 24px;
+      line-height: 1.1;
       letter-spacing: -.025em;
-      margin-top: auto;
-      margin-bottom: 10px;
-      color: var(--ink);
+      margin-top: 35px;
     }
 
     .pillar p {
-      color: var(--ink-soft);
       font-size: 13px;
+      color: var(--ink-soft);
+      margin-top: 9px;
     }
 
+    /* SAMPLE */
 
-    /* =========================
-       SAMPLE
-    ========================= */
-
-    .sample {
+    .sample-section {
+      padding: 110px 0;
       background: var(--bg);
     }
 
-    .sample-header {
-      display: flex;
-      align-items: end;
-      justify-content: space-between;
-      gap: 30px;
-      margin-bottom: 35px;
-    }
-
-    .sample-tag {
-      display: inline-block;
-      padding: 7px 10px;
-      border-radius: 6px;
-      background: var(--green-soft);
-      color: var(--green-deep);
-      font-size: 10px;
-      font-weight: 800;
-      letter-spacing: .1em;
-      margin-bottom: 15px;
-    }
-
-    .sample-note {
-      max-width: 430px;
-      color: var(--ink-soft);
-      font-size: 14px;
-    }
-
     .sample-panel {
-      background: white;
-      color: var(--ink);
       border: 1px solid var(--line);
-      border-radius: 28px;
-      box-shadow: var(--shadow);
+      border-radius: 30px;
       overflow: hidden;
+      background: white;
+      box-shadow: var(--shadow);
+      color: var(--ink);
     }
 
-    .sample-top {
-      padding: 32px 35px;
+    .sample-label {
       background: var(--dark);
-      color: white;
-      display: flex;
-      justify-content: space-between;
-      gap: 30px;
-      align-items: start;
-    }
-
-    .sample-top small {
       color: var(--green-bright);
-      font-size: 10px;
-      font-weight: 800;
-      letter-spacing: .12em;
-      text-transform: uppercase;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .14em;
+      padding: 15px 27px;
     }
 
-    .sample-top h3 {
-      font-family: "Fraunces", Georgia, serif;
-      font-size: 34px;
-      line-height: 1;
-      margin-top: 9px;
-      color: white;
+    .sample-header {
+      padding: 38px 40px 30px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .sample-kicker {
+      display: block;
+      color: var(--green-deep);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      margin-bottom: 10px;
+    }
+
+    .sample-header h3 {
+      font-family: "Fraunces", serif;
+      font-size: clamp(32px, 4vw, 48px);
+      line-height: 1.05;
+      letter-spacing: -.04em;
+      font-weight: 600;
+      max-width: 800px;
     }
 
     .sample-body {
-      padding: 35px;
+      padding: 34px 40px 40px;
       color: var(--ink);
-    }
-
-    .sample-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 0 50px;
     }
 
     .sample-item {
-      padding: 22px 0;
-      border-bottom: 1px solid var(--line);
+      display: grid;
+      grid-template-columns: 190px 1fr;
+      gap: 30px;
+      padding: 21px 0;
+      border-bottom: 1px solid #E8ECE9;
       color: var(--ink);
     }
 
-    .sample-item:nth-child(-n+2) {
-      padding-top: 0;
-    }
-
-    .sample-item h4 {
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: .09em;
+    .sample-item strong {
+      font-size: 13px;
       color: var(--green-deep);
-      margin-bottom: 9px;
+      text-transform: uppercase;
+      letter-spacing: .045em;
+      line-height: 1.4;
     }
 
     .sample-item p {
-      color: var(--ink-soft);
-      font-size: 14px;
+      font-size: 15px;
       line-height: 1.65;
+      color: var(--ink-soft);
+    }
+
+    .sample-item.attention {
+      background: #F2FBF6;
+      margin: 0 -18px;
+      padding-left: 18px;
+      padding-right: 18px;
+      border-radius: 12px;
+      border-bottom: none;
+    }
+
+    .sample-source {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      padding: 24px 0 28px;
+      font-size: 13px;
+      color: var(--ink-soft);
+    }
+
+    .sample-source strong {
+      color: var(--ink);
     }
 
     .prescription {
-      margin-top: 28px;
-      padding: 25px;
-      background: var(--surface-soft);
-      color: var(--ink);
-      border-radius: 16px;
-      border-left: 3px solid var(--green-bright);
+      margin-top: 5px;
+      background: var(--dark);
+      color: white;
+      border-radius: 18px;
+      padding: 25px 27px;
     }
 
-    .prescription h4 {
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: .09em;
-      color: var(--green-deep);
-      margin-bottom: 13px;
+    .prescription-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 20px;
     }
 
-    .prescription p {
-      font-size: 14px;
-      color: var(--ink-soft);
-      margin-top: 7px;
-    }
-
-    .source-line {
-      margin-top: 25px;
+    .prescription-heading span {
+      color: var(--green-bright);
       font-size: 11px;
-      color: var(--muted);
-    }
-
-
-    /* =========================
-       SCOPE
-    ========================= */
-
-    .scope {
-      background: var(--surface);
-    }
-
-    .scope-stat {
-      display: grid;
-      grid-template-columns: .75fr 1.25fr;
-      gap: 70px;
-      align-items: start;
-      margin-bottom: 55px;
-    }
-
-    .big-number {
-      font-family: "Fraunces", Georgia, serif;
-      font-size: clamp(85px, 12vw, 145px);
-      line-height: .8;
-      color: var(--green-deep);
-      letter-spacing: -.07em;
-    }
-
-    .big-number-label {
-      margin-top: 24px;
       font-weight: 700;
-      font-size: 17px;
-      color: var(--ink);
+      letter-spacing: .12em;
     }
 
-    .scope-description {
-      color: var(--ink-soft);
-      font-size: 17px;
-      max-width: 650px;
+    .prescription-heading small {
+      font-size: 10px;
+      color: #AEB9B2;
+      font-weight: 700;
+      letter-spacing: .1em;
     }
+
+    .prescription-route {
+      font-size: 13px;
+      color: #C4CEC8;
+      margin-bottom: 17px;
+      font-weight: 600;
+    }
+
+    .prescription-line {
+      display: grid;
+      grid-template-columns: 25px 1fr;
+      gap: 6px;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .prescription-line strong {
+      color: var(--green-bright);
+    }
+
+    .prescription-note {
+      margin-top: 15px;
+      padding-top: 15px;
+      border-top: 1px solid rgba(255,255,255,.12);
+      font-size: 13px;
+      color: #C4CEC8;
+    }
+
+    /* SCOPE */
 
     .scope-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 14px;
+      gap: 15px;
     }
 
     .scope-card {
       border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 26px;
       background: white;
+      border-radius: var(--radius-md);
+      padding: 28px;
       color: var(--ink);
     }
 
     .scope-card h3 {
-      font-family: "Fraunces", Georgia, serif;
+      font-family: "Fraunces", serif;
       font-size: 25px;
-      margin-bottom: 10px;
-      color: var(--ink);
+      letter-spacing: -.025em;
+      margin-bottom: 15px;
     }
 
-    .scope-card p {
+    .scope-card ul {
+      list-style: none;
+      display: grid;
+      gap: 8px;
+    }
+
+    .scope-card li {
+      position: relative;
+      padding-left: 18px;
       font-size: 14px;
       color: var(--ink-soft);
     }
 
-    .scope-card.full {
-      grid-column: span 2;
-      background: var(--dark);
-      color: white;
+    .scope-card li::before {
+      content: "";
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--green-bright);
+      left: 0;
+      top: 8px;
     }
 
-    .scope-card.full h3 {
-      color: white;
+    .scope-number {
+      color: var(--green-deep);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      margin-bottom: 12px;
     }
 
-    .scope-card.full p {
-      color: rgba(255,255,255,.68);
-    }
+    /* NUMBERS */
 
-    .annexes {
-      margin-top: 14px;
+    .numbers {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 10px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      margin-top: 25px;
     }
 
-    .annex {
-      padding: 17px;
-      border-radius: 12px;
-      background: var(--surface-soft);
-      color: var(--ink);
-      font-size: 13px;
-      font-weight: 600;
+    .number-card {
+      background: var(--dark);
+      border-radius: 22px;
+      padding: 28px;
+      color: white;
     }
 
-
-    /* =========================
-       FOR WHO
-    ========================= */
-
-    .for-who {
-      background: var(--surface-soft);
+    .number-card strong {
+      display: block;
+      color: var(--green-bright);
+      font-family: "Fraunces", serif;
+      font-size: 43px;
+      line-height: 1;
+      margin-bottom: 10px;
     }
 
-    .audience {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    /* CORREÇÃO PRINCIPAL:
-       os balões brancos agora sempre têm texto escuro */
-    .audience span {
-      padding: 13px 17px;
-      border-radius: 999px;
-      background: white;
-      color: var(--ink);
-      border: 1px solid var(--line);
+    .number-card span {
+      color: #C1CBC5;
       font-size: 14px;
-      font-weight: 600;
     }
 
-
-    /* =========================
-       SOURCES
-    ========================= */
-
-    .sources {
-      background: var(--surface);
-    }
+    /* SOURCES */
 
     .source-list {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
+      gap: 9px;
+      margin-top: 30px;
     }
 
     .source-pill {
-      padding: 13px 17px;
+      padding: 10px 14px;
       border: 1px solid var(--line);
+      background: white;
       border-radius: 999px;
       font-size: 13px;
-      color: var(--ink-soft);
-      background: white;
+      color: var(--ink);
+      font-weight: 600;
     }
 
+    /* AUDIENCE */
 
-    /* =========================
-       PRICE
-    ========================= */
+    .audience-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .audience span {
+      background: white;
+      border: 1px solid var(--line);
+      padding: 13px 17px;
+      border-radius: 999px;
+      font-size: 14px;
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    /* PRICE */
 
     .price-section {
-      padding: 90px 0;
-    }
-
-    .price-box {
+      padding: 100px 0;
       background: var(--dark);
       color: white;
-      border-radius: 30px;
-      padding: 60px;
-      display: grid;
-      grid-template-columns: 1.15fr .85fr;
-      gap: 60px;
-      align-items: center;
-      position: relative;
-      overflow: hidden;
     }
 
-    .price-box::before {
-      content: "";
-      position: absolute;
-      width: 500px;
-      height: 500px;
-      border-radius: 50%;
-      background: rgba(0,208,132,.09);
-      right: -230px;
-      top: -240px;
-    }
-
-    .price-content {
-      position: relative;
-      z-index: 1;
-      color: white;
-    }
-
-    .price-content .section-kicker {
-      color: var(--green-bright);
-    }
-
-    .price-content h2 {
-      font-family: "Fraunces", Georgia, serif;
-      font-size: clamp(40px, 5vw, 58px);
-      line-height: 1.02;
-      letter-spacing: -.045em;
-      max-width: 680px;
-      color: white;
-    }
-
-    .price-content p {
-      margin-top: 18px;
-      color: rgba(255,255,255,.68);
-      max-width: 570px;
-    }
-
-    /* Card branco com texto explicitamente escuro */
     .price-card {
-      position: relative;
-      z-index: 1;
-      background: white;
-      color: var(--ink);
-      border-radius: 22px;
-      padding: 30px;
+      background: #17221C;
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: 30px;
+      padding: 48px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 50px;
+      align-items: center;
+      color: white;
     }
 
     .price-card * {
       color: inherit;
     }
 
-    .price-card .old-price {
-      color: var(--muted);
+    .price-card .eyebrow {
+      color: var(--green-bright);
+    }
+
+    .price-card h2 {
+      font-family: "Fraunces", serif;
+      font-size: clamp(38px, 5vw, 58px);
+      line-height: 1;
+      letter-spacing: -.045em;
+      font-weight: 600;
+      margin-bottom: 17px;
+    }
+
+    .price-card p {
+      color: #C2CCC6;
+      max-width: 650px;
+      line-height: 1.65;
+    }
+
+    .price-box {
+      text-align: right;
+      min-width: 230px;
     }
 
     .old-price {
-      font-size: 15px;
+      color: #89948D !important;
       text-decoration: line-through;
-    }
-
-    .price {
-      display: flex;
-      align-items: baseline;
-      gap: 6px;
-      margin: 3px 0 17px;
-      color: var(--ink);
-    }
-
-    .price small {
       font-size: 18px;
-      font-weight: 700;
+      margin-bottom: -3px;
     }
 
-    .price strong {
-      font-family: "Fraunces", Georgia, serif;
+    .current-price {
+      color: var(--green-bright) !important;
+      font-family: "Fraunces", serif;
       font-size: 62px;
       line-height: 1;
+      font-weight: 600;
       letter-spacing: -.05em;
     }
 
-    .price-card .btn {
-      width: 100%;
-      margin-top: 5px;
+    .price-label {
+      color: #AEB9B2 !important;
+      font-size: 12px;
+      margin: 7px 0 20px;
     }
 
     .price-card .btn-primary {
-      background: var(--green-bright);
       color: var(--dark) !important;
+      width: 100%;
     }
 
     .guarantee {
-      margin-top: 14px;
-      text-align: center;
+      color: #9EAAA3 !important;
       font-size: 11px;
-      color: var(--muted) !important;
+      margin-top: 12px;
     }
 
-
-    /* =========================
-       FAQ
-    ========================= */
+    /* FAQ */
 
     .faq {
-      background: var(--bg);
-    }
-
-    .faq-list {
+      display: grid;
+      gap: 10px;
       max-width: 850px;
-      border-top: 1px solid var(--line);
     }
 
     details {
-      border-bottom: 1px solid var(--line);
-      padding: 22px 0;
-      color: var(--ink);
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 20px 23px;
     }
 
     summary {
       cursor: pointer;
-      list-style: none;
       font-weight: 700;
-      font-size: 16px;
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-      color: var(--ink);
+      font-size: 15px;
+      list-style: none;
+      position: relative;
+      padding-right: 25px;
     }
 
     summary::-webkit-details-marker {
@@ -980,9 +899,12 @@
 
     summary::after {
       content: "+";
-      color: var(--green-deep);
-      font-size: 20px;
+      position: absolute;
+      right: 0;
+      top: -2px;
+      font-size: 21px;
       font-weight: 400;
+      color: var(--green-deep);
     }
 
     details[open] summary::after {
@@ -990,79 +912,105 @@
     }
 
     details p {
-      margin-top: 14px;
-      max-width: 760px;
       color: var(--ink-soft);
       font-size: 14px;
+      line-height: 1.65;
+      padding-top: 13px;
+      max-width: 760px;
     }
 
-
-    /* =========================
-       FOOTER
-    ========================= */
+    /* FOOTER */
 
     footer {
-      background: var(--dark);
+      background: #0B100D;
       color: white;
-      padding: 50px 0 35px;
+      padding: 55px 0 30px;
     }
 
     .footer-top {
       display: flex;
       justify-content: space-between;
       gap: 40px;
-      align-items: start;
-      padding-bottom: 40px;
-      border-bottom: 1px solid rgba(255,255,255,.1);
+      padding-bottom: 35px;
+      border-bottom: 1px solid rgba(255,255,255,.10);
     }
 
     .footer-brand {
-      font-size: 22px;
-      font-weight: 800;
-      letter-spacing: -.04em;
-      color: white;
+      max-width: 380px;
     }
 
-    .footer-brand span {
-      color: var(--green-bright);
+    .footer-brand .brand {
+      margin-bottom: 15px;
     }
 
-    .footer-info {
-      max-width: 480px;
-      color: rgba(255,255,255,.58);
+    .footer-brand p {
+      color: #89948D;
       font-size: 13px;
-      line-height: 1.7;
+      line-height: 1.65;
+    }
+
+    .footer-contact {
       text-align: right;
     }
 
+    .footer-contact strong {
+      display: block;
+      font-size: 13px;
+      margin-bottom: 7px;
+    }
+
+    .footer-contact a {
+      color: var(--green-bright);
+      font-size: 13px;
+    }
+
     .footer-bottom {
-      padding-top: 25px;
+      padding-top: 22px;
       display: flex;
       justify-content: space-between;
       gap: 20px;
-      color: rgba(255,255,255,.4);
+      color: #667169;
       font-size: 11px;
+      line-height: 1.5;
     }
 
+    /* DECORATIVE DIVIDER */
 
-    /* =========================
-       RESPONSIVE
-    ========================= */
+    .pulse {
+      width: 100%;
+      height: 40px;
+      overflow: hidden;
+      opacity: .55;
+    }
+
+    .pulse svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    /* RESPONSIVE */
 
     @media (max-width: 980px) {
 
-      .hero-grid,
-      .problem-grid,
-      .scope-stat,
-      .price-box {
-        grid-template-columns: 1fr;
-      }
-
       .hero-grid {
+        grid-template-columns: 1fr;
         gap: 45px;
       }
 
-      .pillar-grid {
+      .hero {
+        padding-top: 65px;
+      }
+
+      .hero-card {
+        max-width: 650px;
+      }
+
+      .problem-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .pillars {
         grid-template-columns: repeat(2, 1fr);
       }
 
@@ -1070,25 +1018,22 @@
         grid-column: span 2;
       }
 
-      .annexes {
-        grid-template-columns: repeat(2, 1fr);
+      .price-card {
+        grid-template-columns: 1fr;
       }
 
       .price-box {
-        padding: 45px 30px;
-      }
-
-      .footer-top {
-        flex-direction: column;
-      }
-
-      .footer-info {
         text-align: left;
+        max-width: 330px;
+      }
+
+      .price-card .btn-primary {
+        width: auto;
+        min-width: 280px;
       }
     }
 
-
-    @media (max-width: 680px) {
+    @media (max-width: 700px) {
 
       .container {
         width: min(calc(100% - 28px), var(--max));
@@ -1102,145 +1047,154 @@
         min-height: 64px;
       }
 
-      .hero {
-        padding: 65px 0 60px;
+      .nav-cta {
+        padding: 10px 14px;
+        font-size: 12px;
       }
 
-      h1 {
+      .hero {
+        padding: 55px 0 60px;
+      }
+
+      .hero h1 {
         font-size: 48px;
       }
 
-      .hero-sub {
-        font-size: 17px;
+      .hero-copy {
+        font-size: 16px;
       }
 
-      section {
+      .hero-card {
+        padding: 25px;
+        border-radius: 22px;
+      }
+
+      .hero-card h2 {
+        font-size: 31px;
+      }
+
+      .section,
+      .sample-section,
+      .price-section {
         padding: 75px 0;
       }
 
-      .sample-header {
-        display: block;
+      .section-intro {
+        margin-bottom: 35px;
       }
 
-      .sample-note {
-        margin-top: 20px;
+      .section-intro h2 {
+        font-size: 39px;
       }
 
-      .sample-top {
-        padding: 27px 24px;
-      }
-
-      .sample-body {
-        padding: 25px 22px;
-      }
-
-      .sample-grid {
+      .pillars {
         grid-template-columns: 1fr;
-        gap: 0;
       }
 
-      .sample-item:nth-child(2) {
-        padding-top: 22px;
+      .pillar:last-child {
+        grid-column: auto;
       }
 
       .scope-grid {
         grid-template-columns: 1fr;
       }
 
-      .scope-card.full {
-        grid-column: span 1;
-      }
-
-      .annexes {
+      .numbers {
         grid-template-columns: 1fr;
       }
 
-      .pillar-grid {
+      .sample-header {
+        padding: 30px 23px 25px;
+      }
+
+      .sample-body {
+        padding: 20px 23px 25px;
+      }
+
+      .sample-item {
         grid-template-columns: 1fr;
+        gap: 7px;
+        padding: 19px 0;
       }
 
-      .pillar:last-child {
-        grid-column: span 1;
+      .sample-item.attention {
+        margin: 0 -10px;
+        padding-left: 12px;
+        padding-right: 12px;
       }
 
-      .price-box {
-        padding: 38px 22px;
-        border-radius: 22px;
+      .prescription {
+        padding: 22px;
       }
 
       .price-card {
-        padding: 25px 20px;
+        padding: 30px 23px;
+        border-radius: 22px;
+      }
+
+      .current-price {
+        font-size: 54px;
+      }
+
+      .price-card .btn-primary {
+        width: 100%;
+        min-width: 0;
+      }
+
+      .footer-top {
+        flex-direction: column;
+      }
+
+      .footer-contact {
+        text-align: left;
       }
 
       .footer-bottom {
         flex-direction: column;
       }
     }
-
   </style>
 </head>
 
-
 <body>
 
-
-  <!-- =========================
-       NAV
-  ========================= -->
-
+  <!-- NAV -->
   <nav class="nav">
-
     <div class="container nav-inner">
 
       <a href="#top" class="brand">
-
-        <div class="brand-mark">
-          M
-        </div>
-
-        <span>
-          MEDx
-        </span>
-
+        <span class="brand-mark">M</span>
+        <span class="brand-text">MEDx</span>
       </a>
 
+      <div style="display:flex;align-items:center;gap:24px;">
+        <a class="nav-link" href="#amostra">Veja o conteúdo</a>
+        <a class="nav-link" href="#conteudo">O que inclui</a>
+        <a class="nav-link" href="#faq">Dúvidas</a>
 
-      <a href="#conteudo" class="nav-link">
-        O que você recebe
-      </a>
-
-
-      <a
-        href="https://pay.hotmart.com/F107709306H"
-        class="nav-cta"
-      >
-        Quero o manual
-      </a>
+        <a
+          class="nav-cta"
+          href="https://pay.hotmart.com/F107709306H"
+          target="_blank"
+          rel="noopener"
+        >
+          Quero o Manual
+        </a>
+      </div>
 
     </div>
-
   </nav>
-
 
 
   <main id="top">
 
-
-    <!-- =========================
-         HERO
-    ========================= -->
-
+    <!-- HERO -->
     <section class="hero">
-
       <div class="container hero-grid">
-
 
         <div>
 
-          <div class="eyebrow">
-            Manual de Prescrição MEDx
-          </div>
-
+          <span class="eyebrow">MANUAL DE PRESCRIÇÃO MEDx</span>
 
           <h1>
             Você não precisa
@@ -1248,1200 +1202,443 @@
             Precisa saber o que fazer.
           </h1>
 
-
-          <p class="hero-sub">
-
+          <p class="hero-copy">
             O Manual de Prescrição MEDx transforma raciocínio clínico em
-            conduta prática: <strong>111 condições</strong> organizadas para
-            você encontrar diagnóstico, decisão, dose, alertas e exemplo de
-            prescrição sem precisar reconstruir tudo do zero.
-
+            conduta prática: <strong>111 condições</strong> organizadas
+            para você encontrar diagnóstico, decisão, dose, alertas e
+            exemplo de prescrição sem precisar reconstruir tudo do zero.
           </p>
-
 
           <div class="hero-actions">
 
             <a
               href="https://pay.hotmart.com/F107709306H"
+              target="_blank"
+              rel="noopener"
               class="btn btn-primary"
             >
               Quero ter o manual no próximo plantão →
             </a>
 
+            <a href="#amostra" class="btn btn-dark">
+              Ver um verbete real
+            </a>
+
           </div>
 
-
-          <p class="microcopy">
-            Acesso imediato após a confirmação. PDF para celular, tablet e computador.
+          <p class="hero-note">
+            Acesso imediato após a confirmação · PDF para celular,
+            tablet e computador.
           </p>
 
         </div>
-
 
 
         <div class="hero-card">
 
-          <div class="hero-card-label">
-            O raciocínio organizado
+          <div class="hero-card-top">
+            <span class="hero-card-label">
+              Raciocínio clínico
+            </span>
+
+            <span class="hero-card-number">
+              111 CONDUTAS
+            </span>
           </div>
 
-
           <h2>
-            Da dúvida clínica à conduta, sem precisar reconstruir tudo.
+            Da dúvida clínica à prescrição.
           </h2>
-
 
           <div class="decision-chain">
 
-
             <div class="decision-item">
-
-              <div class="decision-number">
-                01
-              </div>
-
-              Diagnóstico
-
+              <span class="decision-number">01</span>
+              <span class="decision-text">Diagnóstico</span>
             </div>
 
-
             <div class="decision-item">
-
-              <div class="decision-number">
-                02
-              </div>
-
-              Conduta
-
+              <span class="decision-number">02</span>
+              <span class="decision-text">Conduta</span>
             </div>
 
-
             <div class="decision-item">
-
-              <div class="decision-number">
-                03
-              </div>
-
-              Dose
-
+              <span class="decision-number">03</span>
+              <span class="decision-text">Dose</span>
             </div>
 
-
             <div class="decision-item">
-
-              <div class="decision-number">
-                04
-              </div>
-
-              Atenção
-
+              <span class="decision-number">04</span>
+              <span class="decision-text">Atenção</span>
             </div>
 
-
             <div class="decision-item">
-
-              <div class="decision-number">
-                05
-              </div>
-
-              Prescrição
-
+              <span class="decision-number">05</span>
+              <span class="decision-text">Prescrição</span>
             </div>
-
 
           </div>
 
         </div>
 
       </div>
-
     </section>
 
 
-
-    <div class="pulse"></div>
-
-
-
-    <!-- =========================
-         PROBLEM
-    ========================= -->
-
-    <section class="problem">
-
-      <div class="container">
-
-        <div class="problem-grid">
-
-
-          <div>
-
-            <div class="section-kicker">
-              O problema
-            </div>
-
-
-            <div class="problem-lead">
-
-              O problema não é não saber medicina.
-
-              <br><br>
-
-              É saber e ainda assim
-              <span>travar na hora de decidir.</span>
-
-            </div>
-
-          </div>
-
-
-
-          <div class="pain-list">
-
-
-            <div class="pain">
-
-              <div class="pain-number">
-                01
-              </div>
-
-
-              <div>
-
-                <strong>
-                  Você lembra do medicamento, mas não da decisão.
-                </strong>
-
-
-                <p>
-                  Sabe qual fármaco existe, mas precisa lembrar indicação,
-                  dose, contraindicação, intervalo e o que fazer depois.
-                </p>
-
-              </div>
-
-            </div>
-
-
-
-            <div class="pain">
-
-              <div class="pain-number">
-                02
-              </div>
-
-
-              <div>
-
-                <strong>
-                  A regra quase nunca vem sozinha.
-                </strong>
-
-
-                <p>
-                  Condições associadas, sinais de gravidade, exceções e
-                  situações especiais mudam a conduta.
-                </p>
-
-              </div>
-
-            </div>
-
-
-
-            <div class="pain">
-
-              <div class="pain-number">
-                03
-              </div>
-
-
-              <div>
-
-                <strong>
-                  No plantão, tempo também é uma variável clínica.
-                </strong>
-
-
-                <p>
-                  Quando a dúvida aparece, você precisa encontrar a informação
-                  relevante rapidamente e transformá-la em uma decisão.
-                </p>
-
-              </div>
-
-            </div>
-
-
-          </div>
-
-        </div>
-
-
-
-        <div class="problem-transition">
-
-          É para esse momento que o manual foi pensado:
-          pegar o conhecimento que você já estudou e organizá-lo
-          na sequência em que uma decisão clínica acontece.
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-
-    <!-- =========================
-         PILLARS
-    ========================= -->
-
-    <section class="pillars" id="conteudo">
-
-      <div class="container">
-
-
-        <div class="section-head">
-
-          <div class="section-kicker">
-            Estrutura do manual
-          </div>
-
-
-          <h2 class="section-title">
-            Cinco perguntas que uma boa conduta precisa responder.
+    <!-- DIVIDER -->
+    <div class="pulse">
+      <svg viewBox="0 0 1200 40" preserveAspectRatio="none">
+        <path
+          d="M0 20 H300 L325 20 L340 7 L355 33 L370 20 H570 L595 20 L610 5 L625 35 L640 20 H900 L925 20 L940 10 L955 30 L970 20 H1200"
+          fill="none"
+          stroke="#00D084"
+          stroke-width="2"
+        />
+      </svg>
+    </div>
+
+
+    <!-- PROBLEM -->
+    <section class="section">
+      <div class="container problem-grid">
+
+        <div>
+          <span class="eyebrow">O PROBLEMA</span>
+
+          <h2 class="problem-title">
+            O problema não é não saber medicina.
+            <em>É saber e ainda assim travar na hora de decidir.</em>
           </h2>
-
         </div>
 
+        <div>
 
+          <div class="problem-list">
 
-        <div class="pillar-grid">
-
-
-          <div class="pillar">
-
-            <div class="pillar-number">
-              01
+            <div class="problem-card">
+              <strong>Você lembra do medicamento, mas não da decisão.</strong>
+              <p>
+                Qual dose? Qual via? Quando iniciar? O que precisa
+                ser acompanhado depois?
+              </p>
             </div>
 
+            <div class="problem-card">
+              <strong>Você conhece a regra, mas esquece a exceção.</strong>
+              <p>
+                Hipotensão, função renal, alergias, interações,
+                contraindicações e situações que mudam a conduta.
+              </p>
+            </div>
 
-            <h3>
-              Diagnóstico
-            </h3>
-
-
-            <p>
-              O que devo pensar e quais informações ajudam a confirmar a hipótese?
-            </p>
+            <div class="problem-card">
+              <strong>Você não tem tempo para reconstruir tudo do zero.</strong>
+              <p>
+                Principalmente quando a decisão precisa ser tomada
+                durante o plantão ou diante de uma situação clínica real.
+              </p>
+            </div>
 
           </div>
 
-
-
-          <div class="pillar">
-
-            <div class="pillar-number">
-              02
-            </div>
-
-
-            <h3>
-              Conduta
-            </h3>
-
-
-            <p>
-              O que precisa ser feito agora e quais decisões mudam o caminho?
-            </p>
-
-          </div>
-
-
-
-          <div class="pillar">
-
-            <div class="pillar-number">
-              03
-            </div>
-
-
-            <h3>
-              Atenção
-            </h3>
-
-
-            <p>
-              Quais sinais de alerta, contraindicações ou situações especiais importam?
-            </p>
-
-          </div>
-
-
-
-          <div class="pillar">
-
-            <div class="pillar-number">
-              04
-            </div>
-
-
-            <h3>
-              Exames e encaminhamento
-            </h3>
-
-
-            <p>
-              Quando investigar, acompanhar, encaminhar ou reavaliar?
-            </p>
-
-          </div>
-
-
-
-          <div class="pillar">
-
-            <div class="pillar-number">
-              05
-            </div>
-
-
-            <h3>
-              Prescrição
-            </h3>
-
-
-            <p>
-              Como transformar a decisão em uma orientação prática?
-            </p>
-
-          </div>
-
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-
-    <!-- =========================
-         SAMPLE
-    ========================= -->
-
-    <section class="sample">
-
-      <div class="container">
-
-
-        <div class="sample-header">
-
-
-          <div>
-
-            <div class="sample-tag">
-              UM VERBETE COMPLETO DO MANUAL
-            </div>
-
-
-            <h2 class="section-title">
-              Antes de comprar, veja exatamente o que você está levando.
-            </h2>
-
-          </div>
-
-
-          <p class="sample-note">
-
-            Abaixo está um verbete completo do manual. Não é uma versão
-            resumida da proposta: é uma demonstração de como o conteúdo é
-            organizado para transformar uma condição clínica em uma sequência
-            de decisão prática.
-
+          <p class="problem-transition">
+            É para esse momento que o Manual foi pensado:
+            pegar o conhecimento que você já estudou e organizá-lo
+            na sequência em que uma decisão clínica acontece.
           </p>
 
         </div>
 
+      </div>
+    </section>
+
+
+    <!-- PILLARS -->
+    <section class="section section-soft" id="como-funciona">
+
+      <div class="container">
+
+        <div class="section-intro">
+
+          <span class="eyebrow">A ESTRUTURA</span>
+
+          <h2>
+            Cinco perguntas que uma boa conduta precisa responder.
+          </h2>
+
+          <p>
+            O Manual não foi organizado como uma lista de medicamentos.
+            Cada verbete segue uma lógica prática para aproximar estudo,
+            raciocínio e tomada de decisão.
+          </p>
+
+        </div>
+
+
+        <div class="pillars">
+
+          <div class="pillar">
+            <div class="pillar-number">01</div>
+
+            <div>
+              <h3>Diagnóstico</h3>
+              <p>
+                O que procurar e quais critérios ajudam a confirmar a condição.
+              </p>
+            </div>
+          </div>
+
+
+          <div class="pillar">
+            <div class="pillar-number">02</div>
+
+            <div>
+              <h3>Conduta</h3>
+              <p>
+                O que fazer diante daquele cenário clínico.
+              </p>
+            </div>
+          </div>
+
+
+          <div class="pillar">
+            <div class="pillar-number">03</div>
+
+            <div>
+              <h3>Atenção</h3>
+              <p>
+                Alertas, contraindicações e situações que mudam a decisão.
+              </p>
+            </div>
+          </div>
+
+
+          <div class="pillar">
+            <div class="pillar-number">04</div>
+
+            <div>
+              <h3>Exames e encaminhamento</h3>
+              <p>
+                O que investigar e quando escalar o cuidado.
+              </p>
+            </div>
+          </div>
+
+
+          <div class="pillar">
+            <div class="pillar-number">05</div>
+
+            <div>
+              <h3>Prescrição</h3>
+              <p>
+                Exemplo prático de como transformar a decisão em prescrição.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- REAL SAMPLE -->
+    <section class="sample-section" id="amostra">
+
+      <div class="container">
+
+        <div class="section-intro">
+
+          <span class="eyebrow">ANTES DE COMPRAR</span>
+
+          <h2>
+            Veja exatamente o que você está levando.
+          </h2>
+
+          <p>
+            Abaixo está um <strong>verbete real do Manual de Prescrição MEDx</strong>.
+            Não é uma versão resumida da proposta: é um exemplo de como uma
+            condição clínica é transformada em uma sequência prática de
+            decisão, atenção e prescrição.
+          </p>
+
+        </div>
 
 
         <div class="sample-panel">
 
-
-          <div class="sample-top">
-
-            <div>
-
-              <small>
-                Exemplo de verbete
-              </small>
-
-
-              <h3>
-                Dengue
-              </h3>
-
-            </div>
-
+          <div class="sample-label">
+            UM VERBETE REAL DO MANUAL
           </div>
 
+
+          <div class="sample-header">
+
+            <span class="sample-kicker">
+              CLÍNICA MÉDICA
+            </span>
+
+            <h3>
+              Insuficiência cardíaca aguda descompensada
+            </h3>
+
+          </div>
 
 
           <div class="sample-body">
 
+            <div class="sample-item">
 
-            <div class="sample-grid">
+              <strong>Quando prescrever</strong>
 
-
-              <div class="sample-item">
-
-                <h4>
-                  Quando pensar em prescrever
-                </h4>
-
-
-                <p>
-                  Síndrome febril aguda em contexto compatível, com classificação
-                  por grupo de risco conforme sinais de alarme e condições associadas.
-                </p>
-
-              </div>
-
-
-
-              <div class="sample-item">
-
-                <h4>
-                  Diagnóstico
-                </h4>
-
-
-                <p>
-                  Avaliar história clínica, exame físico, tempo de evolução,
-                  contexto epidemiológico e sinais de alarme.
-                </p>
-
-              </div>
-
-
-
-              <div class="sample-item">
-
-                <h4>
-                  Conduta
-                </h4>
-
-
-                <p>
-                  A conduta depende da classificação clínica, presença de sinais
-                  de alarme, condições associadas e capacidade de acompanhamento.
-                </p>
-
-              </div>
-
-
-
-              <div class="sample-item">
-
-                <h4>
-                  Atenção
-                </h4>
-
-
-                <p>
-                  Observar sinais de alarme, alterações clínicas progressivas
-                  e condições que aumentem o risco de complicações.
-                </p>
-
-              </div>
-
-
-
-              <div class="sample-item">
-
-                <h4>
-                  Exames e acompanhamento
-                </h4>
-
-
-                <p>
-                  A necessidade de exames e reavaliação deve ser determinada
-                  conforme apresentação clínica e classificação de risco.
-                </p>
-
-              </div>
-
-
-
-              <div class="sample-item">
-
-                <h4>
-                  Encaminhamento
-                </h4>
-
-
-                <p>
-                  Pacientes com sinais de alarme ou condições que exijam
-                  maior suporte devem ser direcionados para avaliação adequada.
-                </p>
-
-              </div>
-
+              <p>
+                Dispneia, estertores, edema, turgência jugular,
+                ganho de peso recente.
+              </p>
 
             </div>
 
+
+            <div class="sample-item">
+
+              <strong>Diagnóstico</strong>
+
+              <p>
+                Critérios de Framingham (2 maiores, ou 1 maior + 2 menores)
+                para o diagnóstico clínico; BNP/NT-proBNP elevado e
+                ecocardiograma com disfunção ventricular confirmam e
+                quantificam.
+              </p>
+
+            </div>
+
+
+            <div class="sample-item">
+
+              <strong>Conduta</strong>
+
+              <p>
+                Furosemida 40 mg IV em bolus (dobrar se já em uso crônico oral),
+                reavaliar diurese em 2h.
+              </p>
+
+            </div>
+
+
+            <div class="sample-item attention">
+
+              <strong>Atenção</strong>
+
+              <p>
+                Em choque cardiogênico ou hipotensão (PAS &lt; 90 mmHg),
+                furosemida isolada pode piorar a perfusão: priorizar suporte
+                inotrópico/vasopressor e avaliar a causa antes de diurético
+                em dose alta.
+              </p>
+
+            </div>
+
+
+            <div class="sample-item">
+
+              <strong>Ajuste</strong>
+
+              <p>
+                Em DRC avançada, doses maiores podem ser necessárias:
+                furosemida perde eficácia com TFG baixa.
+              </p>
+
+            </div>
+
+
+            <div class="sample-item">
+
+              <strong>Interação</strong>
+
+              <p>
+                Monitorar potássio e função renal seriada:
+                diuréticos de alça predispõem a hipocalemia.
+              </p>
+
+            </div>
+
+
+            <div class="sample-item">
+
+              <strong>Erro comum</strong>
+
+              <p>
+                Restringir volume de forma agressiva sem reavaliar perfusão:
+                pode precipitar hipotensão em paciente com baixo débito.
+              </p>
+
+            </div>
+
+
+            <div class="sample-item">
+
+              <strong>Alergia</strong>
+
+              <p>
+                Alergia a sulfa cruza com furosemida em teoria, mas a reação
+                cruzada real é rara: na prática, furosemida costuma ser mantida
+                mesmo com alergia a sulfonamida não relacionada a diuréticos.
+              </p>
+
+            </div>
+
+
+            <div class="sample-item">
+
+              <strong>Apresentação atípica</strong>
+
+              <p>
+                No idoso, pode se apresentar como confusão mental ou fadiga
+                isolada, sem a tríade clássica de dispneia/edema/estertores.
+              </p>
+
+            </div>
+
+
+            <div class="sample-item">
+
+              <strong>Exames</strong>
+
+              <p>
+                BNP/NT-proBNP (auxilia quando o diagnóstico é duvidoso),
+                raio-X de tórax e ecocardiograma para avaliar função ventricular.
+              </p>
+
+            </div>
+
+
+            <div class="sample-item">
+
+              <strong>Quando encaminhar</strong>
+
+              <p>
+                Acionar cardiologia se refratária à diurese inicial, ou se houver
+                dúvida sobre necessidade de suporte inotrópico/UTI.
+              </p>
+
+            </div>
+
+
+            <div class="sample-source">
+
+              <strong>Fonte:</strong>
+
+              <span>
+                Diretriz Brasileira de Insuficiência Cardíaca (SBC).
+              </span>
+
+            </div>
 
 
             <div class="prescription">
 
-              <h4>
-                Exemplo de prescrição
-              </h4>
+              <div class="prescription-heading">
 
-
-              <p>
-                <strong>Paracetamol:</strong>
-                administrar conforme peso/faixa etária e limites de dose recomendados.
-              </p>
-
-
-              <p>
-                <strong>Hidratação oral:</strong>
-                orientar ingestão fracionada e adequada ao quadro clínico.
-              </p>
-
-            </div>
-
-
-
-            <div class="source-line">
-              Fonte de referência: Ministério da Saúde.
-            </div>
-
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-
-    <!-- =========================
-         SCOPE
-    ========================= -->
-
-    <section class="scope">
-
-      <div class="container">
-
-
-        <div class="scope-stat">
-
-
-          <div>
-
-            <div class="big-number">
-              111
-            </div>
-
-
-            <div class="big-number-label">
-              condutas organizadas para consulta prática
-            </div>
-
-          </div>
-
-
-          <div>
-
-            <div class="section-kicker">
-              O que está dentro
-            </div>
-
-
-            <p class="scope-description">
-
-              O manual reúne conteúdos organizados para que você consiga
-              percorrer o raciocínio clínico de forma objetiva, da identificação
-              da condição até a orientação prática.
-
-            </p>
-
-          </div>
-
-        </div>
-
-
-
-        <div class="scope-grid">
-
-
-          <div class="scope-card">
-
-            <h3>
-              Clínica Médica
-            </h3>
-
-
-            <p>
-              Condições frequentes da prática clínica, organizadas para consulta
-              rápida e revisão.
-            </p>
-
-          </div>
-
-
-
-          <div class="scope-card">
-
-            <h3>
-              Pediatria
-            </h3>
-
-
-            <p>
-              Situações clínicas relevantes da prática pediátrica e seus
-              principais pontos de decisão.
-            </p>
-
-          </div>
-
-
-
-          <div class="scope-card">
-
-            <h3>
-              Ginecologia e Obstetrícia
-            </h3>
-
-
-            <p>
-              Condutas organizadas para situações frequentes em ginecologia
-              e obstetrícia.
-            </p>
-
-          </div>
-
-
-
-          <div class="scope-card">
-
-            <h3>
-              Cirurgia Geral
-            </h3>
-
-
-            <p>
-              Abordagem prática de condições cirúrgicas e situações que exigem
-              reconhecimento e decisão rápida.
-            </p>
-
-          </div>
-
-
-
-          <div class="scope-card full">
-
-            <h3>
-              + 4 anexos de referência rápida
-            </h3>
-
-
-            <p>
-              Materiais complementares para consulta durante o estudo e
-              revisão das principais decisões.
-            </p>
-
-
-            <div class="annexes">
-
-
-              <div class="annex">
-                Fórmulas e escores
-              </div>
-
-
-              <div class="annex">
-                Interações medicamentosas de alto risco
-              </div>
-
-
-              <div class="annex">
-                Efeitos adversos por classe
-              </div>
-
-
-              <div class="annex">
-                Toxidromes e intoxicações
-              </div>
-
-
-            </div>
-
-          </div>
-
-
-        </div>
-
-
-        <div
-          style="
-            margin-top:18px;
-            color:var(--muted);
-            font-size:13px;
-          "
-        >
-          100% do sumário é clicável para facilitar a navegação pelo PDF.
-        </div>
-
-
-      </div>
-
-    </section>
-
-
-
-    <!-- =========================
-         FOR WHO
-    ========================= -->
-
-    <section class="for-who">
-
-      <div class="container">
-
-
-        <div class="section-head">
-
-          <div class="section-kicker">
-            Feito para quem
-          </div>
-
-
-          <h2 class="section-title">
-            Para quem precisa transformar conhecimento em decisão.
-          </h2>
-
-        </div>
-
-
-
-        <div class="audience">
-
-
-          <span>
-            Interno no último ano
-          </span>
-
-
-          <span>
-            Ciclo Clínico
-          </span>
-
-
-          <span>
-            Residente de primeiro ano
-          </span>
-
-
-          <span>
-            Plantonista de UPA/PS
-          </span>
-
-
-          <span>
-            Clínico geral
-          </span>
-
-
-          <span>
-            Profissionais da saúde
-          </span>
-
-
-          <span>
-            Quem revisa para residência
-          </span>
-
-
-          <span>
-            Quem busca mais segurança nos estudos e na decisão clínica
-          </span>
-
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-
-    <!-- =========================
-         SOURCES
-    ========================= -->
-
-    <section class="sources">
-
-      <div class="container">
-
-
-        <div class="section-head">
-
-          <div class="section-kicker">
-            Referências
-          </div>
-
-
-          <h2 class="section-title">
-            Conteúdo construído a partir de referências reconhecidas.
-          </h2>
-
-
-          <p class="section-intro">
-
-            As condutas foram organizadas com base em diretrizes, protocolos
-            e referências utilizadas na prática clínica e na formação médica.
-
-          </p>
-
-        </div>
-
-
-
-        <div class="source-list">
-
-
-          <div class="source-pill">
-            Ministério da Saúde
-          </div>
-
-
-          <div class="source-pill">
-            Sociedade Brasileira de Cardiologia
-          </div>
-
-
-          <div class="source-pill">
-            Sociedade Brasileira de Diabetes
-          </div>
-
-
-          <div class="source-pill">
-            Febrasgo
-          </div>
-
-
-          <div class="source-pill">
-            American College of Physicians
-          </div>
-
-
-          <div class="source-pill">
-            World Society of Emergency Surgery
-          </div>
-
-
-          <div class="source-pill">
-            International League Against Epilepsy
-          </div>
-
-
-          <div class="source-pill">
-            Outras diretrizes e referências específicas
-          </div>
-
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-
-    <!-- =========================
-         PRICE
-    ========================= -->
-
-    <section class="price-section" id="preco">
-
-      <div class="container">
-
-
-        <div class="price-box">
-
-
-          <div class="price-content">
-
-            <div class="section-kicker">
-              Acesso imediato
-            </div>
-
-
-            <h2>
-              No próximo plantão, tenha o raciocínio organizado antes da dúvida aparecer.
-            </h2>
-
-
-            <p>
-              Um material de consulta prática para estudo, revisão e apoio
-              à organização do raciocínio clínico.
-            </p>
-
-          </div>
-
-
-
-          <div class="price-card">
-
-
-            <div class="old-price">
-              De R$ 47
-            </div>
-
-
-            <div class="price">
-
-              <small>
-                R$
-              </small>
-
-
-              <strong>
-                27
-              </strong>
-
-            </div>
-
-
-            <a
-              href="https://pay.hotmart.com/F107709306H"
-              class="btn btn-primary"
-            >
-              Quero meu Manual de Prescrição MEDx →
-            </a>
-
-
-            <div class="guarantee">
-              Compra protegida · 7 dias de garantia
-            </div>
-
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-
-    <!-- =========================
-         FAQ
-    ========================= -->
-
-    <section class="faq">
-
-      <div class="container">
-
-
-        <div class="section-head">
-
-          <div class="section-kicker">
-            Dúvidas frequentes
-          </div>
-
-
-          <h2 class="section-title">
-            Antes de comprar.
-          </h2>
-
-        </div>
-
-
-
-        <div class="faq-list">
-
-
-          <details>
-
-            <summary>
-              Como recebo o manual?
-            </summary>
-
-
-            <p>
-              O Manual de Prescrição MEDx é um produto digital em PDF.
-              Após a confirmação da compra, o acesso é disponibilizado
-              conforme as instruções enviadas pela Hotmart.
-            </p>
-
-          </details>
-
-
-
-          <details>
-
-            <summary>
-              Posso acessar pelo celular?
-            </summary>
-
-
-            <p>
-              Sim. O material foi pensado para ser utilizado em celular,
-              tablet e computador.
-            </p>
-
-          </details>
-
-
-
-          <details>
-
-            <summary>
-              O manual será atualizado?
-            </summary>
-
-
-            <p>
-              A MEDx poderá disponibilizar atualizações do material conforme
-              novas versões, referências e necessidades identificadas para
-              futuras edições.
-            </p>
-
-          </details>
-
-
-
-          <details>
-
-            <summary>
-              O manual substitui a avaliação clínica?
-            </summary>
-
-
-            <p>
-              Não. O material é educacional e foi desenvolvido para organização
-              do raciocínio e consulta. A decisão clínica deve considerar o
-              paciente, seu contexto, avaliação profissional, protocolos locais
-              e referências atualizadas.
-            </p>
-
-          </details>
-
-
-
-          <details>
-
-            <summary>
-              Posso desistir da compra?
-            </summary>
-
-
-            <p>
-              Sim. A compra conta com 7 dias de garantia, conforme as condições
-              informadas no processo de compra.
-            </p>
-
-          </details>
-
-
-
-          <details>
-
-            <summary>
-              É útil para quem está estudando para residência?
-            </summary>
-
-
-            <p>
-              Sim. Além da consulta prática, a organização das condutas pode
-              auxiliar na revisão de temas frequentes e na consolidação do
-              raciocínio clínico.
-            </p>
-
-          </details>
-
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-  </main>
-
-
-
-  <!-- =========================
-       FOOTER
-  ========================= -->
-
-  <footer>
-
-    <div class="container">
-
-
-      <div class="footer-top">
-
-
-        <div class="footer-brand">
-          <span>MEDx</span>
-        </div>
-
-
-        <div class="footer-info">
-
-          Manual de Prescrição MEDx: Raciocínio clínico para a prática.
-
-          <br>
-
-          Produto digital educacional.
-
-          <br><br>
-
-          contato@medxresidencia.com.br
-
-          <br><br>
-
-          Este material possui finalidade educacional e não substitui
-          avaliação clínica, julgamento profissional, protocolos institucionais
-          ou diretrizes atualizadas.
-
-        </div>
-
-
-      </div>
-
-
-
-      <div class="footer-bottom">
-
-
-        <div>
-          © 2026 MEDx. Todos os direitos reservados.
-        </div>
-
-
-        <div>
-          Manual de Prescrição MEDx
-        </div>
-
-
-      </div>
-
-
-    </div>
-
-  </footer>
-
-
-</body>
-</html>
+                <span>
+                  EXEMPLO DE PRESCRIÇÃO
 ```
