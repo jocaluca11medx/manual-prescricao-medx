@@ -2,36 +2,49 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Manual de Prescrição MEDx: 111 condutas organizadas para transformar raciocínio clínico em decisão prática." />
-  <meta name="theme-color" content="#FCFCFA" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description" content="Manual de Prescrição MEDx: 111 condutas organizadas para transformar raciocínio clínico em decisão prática.">
+
+  <meta name="theme-color" content="#FCFCFA">
 
   <title>Manual de Prescrição MEDx | Raciocínio clínico para a prática</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
 
   <style>
+
     :root {
       --bg: #FCFCFA;
       --surface: #FFFFFF;
       --surface-soft: #F3F5F1;
+
       --ink: #15160F;
       --ink-soft: #4A4A44;
       --muted: #777A72;
+
       --line: #E3E6DF;
+
       --green-deep: #00733F;
       --green: #00A95C;
       --green-bright: #00D084;
       --green-soft: #DDF8EC;
+
       --dark: #10130F;
       --white: #FFFFFF;
+
       --shadow: 0 20px 60px rgba(17, 31, 22, 0.08);
+
       --radius: 24px;
       --radius-small: 14px;
+
       --max: 1180px;
     }
 
@@ -72,7 +85,10 @@
       font-family: "Fraunces", Georgia, serif;
     }
 
-    /* NAV */
+
+    /* =========================
+       NAV
+    ========================= */
 
     .nav {
       position: sticky;
@@ -97,6 +113,7 @@
       gap: 10px;
       font-weight: 700;
       letter-spacing: -0.03em;
+      color: var(--ink);
     }
 
     .brand-mark {
@@ -139,7 +156,10 @@
       background: var(--green-deep);
     }
 
-    /* BUTTONS */
+
+    /* =========================
+       BUTTONS
+    ========================= */
 
     .btn {
       display: inline-flex;
@@ -151,7 +171,10 @@
       font-weight: 700;
       font-size: 15px;
       border: 1px solid transparent;
-      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+      transition:
+        transform .2s ease,
+        box-shadow .2s ease,
+        background .2s ease;
       cursor: pointer;
     }
 
@@ -161,7 +184,7 @@
 
     .btn-primary {
       background: var(--green-bright);
-      color: var(--dark);
+      color: var(--dark) !important;
       box-shadow: 0 12px 28px rgba(0, 208, 132, 0.18);
     }
 
@@ -171,15 +194,18 @@
 
     .btn-dark {
       background: var(--dark);
-      color: white;
+      color: white !important;
     }
 
     .btn-light {
       background: white;
-      color: var(--dark);
+      color: var(--dark) !important;
     }
 
-    /* HERO */
+
+    /* =========================
+       HERO
+    ========================= */
 
     .hero {
       position: relative;
@@ -194,7 +220,11 @@
       height: 540px;
       right: -220px;
       top: -220px;
-      background: radial-gradient(circle, rgba(0,208,132,.12), transparent 68%);
+      background: radial-gradient(
+        circle,
+        rgba(0,208,132,.12),
+        transparent 68%
+      );
       pointer-events: none;
     }
 
@@ -295,6 +325,7 @@
       line-height: 1.08;
       letter-spacing: -.035em;
       max-width: 390px;
+      color: white;
     }
 
     .decision-chain {
@@ -313,6 +344,7 @@
       border: 1px solid rgba(255,255,255,.12);
       border-radius: 12px;
       background: rgba(255,255,255,.045);
+      color: white;
       font-size: 14px;
       font-weight: 600;
     }
@@ -330,7 +362,10 @@
       flex: 0 0 auto;
     }
 
-    /* DIVIDER */
+
+    /* =========================
+       DIVIDER
+    ========================= */
 
     .pulse {
       height: 1px;
@@ -349,7 +384,10 @@
       background: var(--green-bright);
     }
 
-    /* SECTIONS */
+
+    /* =========================
+       GENERAL SECTIONS
+    ========================= */
 
     section {
       padding: 105px 0;
@@ -375,6 +413,7 @@
       line-height: 1.04;
       letter-spacing: -.045em;
       font-weight: 600;
+      color: var(--ink);
     }
 
     .section-intro {
@@ -384,7 +423,10 @@
       max-width: 700px;
     }
 
-    /* PROBLEM */
+
+    /* =========================
+       PROBLEM
+    ========================= */
 
     .problem {
       background: var(--surface);
@@ -402,6 +444,7 @@
       font-size: 32px;
       line-height: 1.15;
       letter-spacing: -.03em;
+      color: var(--ink);
     }
 
     .problem-lead span {
@@ -419,6 +462,7 @@
       display: grid;
       grid-template-columns: 45px 1fr;
       gap: 18px;
+      color: var(--ink);
     }
 
     .pain:last-child {
@@ -435,6 +479,7 @@
       display: block;
       font-size: 17px;
       margin-bottom: 5px;
+      color: var(--ink);
     }
 
     .pain p {
@@ -451,7 +496,10 @@
       font-size: 17px;
     }
 
-    /* PILLARS */
+
+    /* =========================
+       PILLARS
+    ========================= */
 
     .pillars {
       background: var(--surface-soft);
@@ -463,9 +511,12 @@
       gap: 12px;
     }
 
+    /* CORREÇÃO PRINCIPAL:
+       força texto escuro em todos os cards brancos */
     .pillar {
       min-height: 225px;
       background: white;
+      color: var(--ink);
       border: 1px solid var(--line);
       border-radius: var(--radius-small);
       padding: 24px 20px;
@@ -488,6 +539,7 @@
       letter-spacing: -.025em;
       margin-top: auto;
       margin-bottom: 10px;
+      color: var(--ink);
     }
 
     .pillar p {
@@ -495,7 +547,10 @@
       font-size: 13px;
     }
 
-    /* SAMPLE */
+
+    /* =========================
+       SAMPLE
+    ========================= */
 
     .sample {
       background: var(--bg);
@@ -529,6 +584,7 @@
 
     .sample-panel {
       background: white;
+      color: var(--ink);
       border: 1px solid var(--line);
       border-radius: 28px;
       box-shadow: var(--shadow);
@@ -558,10 +614,12 @@
       font-size: 34px;
       line-height: 1;
       margin-top: 9px;
+      color: white;
     }
 
     .sample-body {
       padding: 35px;
+      color: var(--ink);
     }
 
     .sample-grid {
@@ -573,6 +631,7 @@
     .sample-item {
       padding: 22px 0;
       border-bottom: 1px solid var(--line);
+      color: var(--ink);
     }
 
     .sample-item:nth-child(-n+2) {
@@ -597,6 +656,7 @@
       margin-top: 28px;
       padding: 25px;
       background: var(--surface-soft);
+      color: var(--ink);
       border-radius: 16px;
       border-left: 3px solid var(--green-bright);
     }
@@ -621,7 +681,10 @@
       color: var(--muted);
     }
 
-    /* SCOPE */
+
+    /* =========================
+       SCOPE
+    ========================= */
 
     .scope {
       background: var(--surface);
@@ -647,6 +710,7 @@
       margin-top: 24px;
       font-weight: 700;
       font-size: 17px;
+      color: var(--ink);
     }
 
     .scope-description {
@@ -665,12 +729,15 @@
       border: 1px solid var(--line);
       border-radius: 18px;
       padding: 26px;
+      background: white;
+      color: var(--ink);
     }
 
     .scope-card h3 {
       font-family: "Fraunces", Georgia, serif;
       font-size: 25px;
       margin-bottom: 10px;
+      color: var(--ink);
     }
 
     .scope-card p {
@@ -681,6 +748,10 @@
     .scope-card.full {
       grid-column: span 2;
       background: var(--dark);
+      color: white;
+    }
+
+    .scope-card.full h3 {
       color: white;
     }
 
@@ -699,11 +770,15 @@
       padding: 17px;
       border-radius: 12px;
       background: var(--surface-soft);
+      color: var(--ink);
       font-size: 13px;
       font-weight: 600;
     }
 
-    /* FOR WHO */
+
+    /* =========================
+       FOR WHO
+    ========================= */
 
     .for-who {
       background: var(--surface-soft);
@@ -715,16 +790,22 @@
       gap: 10px;
     }
 
+    /* CORREÇÃO PRINCIPAL:
+       os balões brancos agora sempre têm texto escuro */
     .audience span {
       padding: 13px 17px;
       border-radius: 999px;
       background: white;
+      color: var(--ink);
       border: 1px solid var(--line);
       font-size: 14px;
       font-weight: 600;
     }
 
-    /* SOURCES */
+
+    /* =========================
+       SOURCES
+    ========================= */
 
     .sources {
       background: var(--surface);
@@ -745,7 +826,10 @@
       background: white;
     }
 
-    /* PRICE */
+
+    /* =========================
+       PRICE
+    ========================= */
 
     .price-section {
       padding: 90px 0;
@@ -778,6 +862,7 @@
     .price-content {
       position: relative;
       z-index: 1;
+      color: white;
     }
 
     .price-content .section-kicker {
@@ -790,6 +875,7 @@
       line-height: 1.02;
       letter-spacing: -.045em;
       max-width: 680px;
+      color: white;
     }
 
     .price-content p {
@@ -798,6 +884,7 @@
       max-width: 570px;
     }
 
+    /* Card branco com texto explicitamente escuro */
     .price-card {
       position: relative;
       z-index: 1;
@@ -807,9 +894,16 @@
       padding: 30px;
     }
 
+    .price-card * {
+      color: inherit;
+    }
+
+    .price-card .old-price {
+      color: var(--muted);
+    }
+
     .old-price {
       font-size: 15px;
-      color: var(--muted);
       text-decoration: line-through;
     }
 
@@ -818,6 +912,7 @@
       align-items: baseline;
       gap: 6px;
       margin: 3px 0 17px;
+      color: var(--ink);
     }
 
     .price small {
@@ -837,14 +932,22 @@
       margin-top: 5px;
     }
 
+    .price-card .btn-primary {
+      background: var(--green-bright);
+      color: var(--dark) !important;
+    }
+
     .guarantee {
       margin-top: 14px;
       text-align: center;
       font-size: 11px;
-      color: var(--muted);
+      color: var(--muted) !important;
     }
 
-    /* FAQ */
+
+    /* =========================
+       FAQ
+    ========================= */
 
     .faq {
       background: var(--bg);
@@ -858,6 +961,7 @@
     details {
       border-bottom: 1px solid var(--line);
       padding: 22px 0;
+      color: var(--ink);
     }
 
     summary {
@@ -868,6 +972,7 @@
       display: flex;
       justify-content: space-between;
       gap: 20px;
+      color: var(--ink);
     }
 
     summary::-webkit-details-marker {
@@ -892,7 +997,10 @@
       font-size: 14px;
     }
 
-    /* FOOTER */
+
+    /* =========================
+       FOOTER
+    ========================= */
 
     footer {
       background: var(--dark);
@@ -913,6 +1021,7 @@
       font-size: 22px;
       font-weight: 800;
       letter-spacing: -.04em;
+      color: white;
     }
 
     .footer-brand span {
@@ -936,9 +1045,13 @@
       font-size: 11px;
     }
 
-    /* RESPONSIVE */
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
 
     @media (max-width: 980px) {
+
       .hero-grid,
       .problem-grid,
       .scope-stat,
@@ -975,7 +1088,9 @@
       }
     }
 
+
     @media (max-width: 680px) {
+
       .container {
         width: min(calc(100% - 28px), var(--max));
       }
@@ -1062,23 +1177,39 @@
         flex-direction: column;
       }
     }
+
   </style>
 </head>
 
+
 <body>
 
-  <!-- NAV -->
+
+  <!-- =========================
+       NAV
+  ========================= -->
+
   <nav class="nav">
+
     <div class="container nav-inner">
 
       <a href="#top" class="brand">
-        <div class="brand-mark">M</div>
-        <span>MEDx</span>
+
+        <div class="brand-mark">
+          M
+        </div>
+
+        <span>
+          MEDx
+        </span>
+
       </a>
+
 
       <a href="#conteudo" class="nav-link">
         O que você recebe
       </a>
+
 
       <a
         href="https://pay.hotmart.com/F107709306H"
@@ -1088,14 +1219,22 @@
       </a>
 
     </div>
+
   </nav>
+
 
 
   <main id="top">
 
-    <!-- HERO -->
+
+    <!-- =========================
+         HERO
+    ========================= -->
+
     <section class="hero">
+
       <div class="container hero-grid">
+
 
         <div>
 
@@ -1103,18 +1242,23 @@
             Manual de Prescrição MEDx
           </div>
 
+
           <h1>
             Você não precisa
             <em>decorar mais.</em>
             Precisa saber o que fazer.
           </h1>
 
+
           <p class="hero-sub">
+
             O Manual de Prescrição MEDx transforma raciocínio clínico em
             conduta prática: <strong>111 condições</strong> organizadas para
             você encontrar diagnóstico, decisão, dose, alertas e exemplo de
             prescrição sem precisar reconstruir tudo do zero.
+
           </p>
+
 
           <div class="hero-actions">
 
@@ -1127,11 +1271,13 @@
 
           </div>
 
+
           <p class="microcopy">
             Acesso imediato após a confirmação. PDF para celular, tablet e computador.
           </p>
 
         </div>
+
 
 
         <div class="hero-card">
@@ -1140,54 +1286,94 @@
             O raciocínio organizado
           </div>
 
+
           <h2>
             Da dúvida clínica à conduta, sem precisar reconstruir tudo.
           </h2>
 
+
           <div class="decision-chain">
 
+
             <div class="decision-item">
-              <div class="decision-number">01</div>
+
+              <div class="decision-number">
+                01
+              </div>
+
               Diagnóstico
+
             </div>
 
+
             <div class="decision-item">
-              <div class="decision-number">02</div>
+
+              <div class="decision-number">
+                02
+              </div>
+
               Conduta
+
             </div>
 
+
             <div class="decision-item">
-              <div class="decision-number">03</div>
+
+              <div class="decision-number">
+                03
+              </div>
+
               Dose
+
             </div>
 
+
             <div class="decision-item">
-              <div class="decision-number">04</div>
+
+              <div class="decision-number">
+                04
+              </div>
+
               Atenção
+
             </div>
 
+
             <div class="decision-item">
-              <div class="decision-number">05</div>
+
+              <div class="decision-number">
+                05
+              </div>
+
               Prescrição
+
             </div>
+
 
           </div>
 
         </div>
 
       </div>
+
     </section>
+
 
 
     <div class="pulse"></div>
 
 
-    <!-- PROBLEM -->
+
+    <!-- =========================
+         PROBLEM
+    ========================= -->
+
     <section class="problem">
 
       <div class="container">
 
         <div class="problem-grid">
+
 
           <div>
 
@@ -1195,17 +1381,24 @@
               O problema
             </div>
 
+
             <div class="problem-lead">
+
               O problema não é não saber medicina.
+
               <br><br>
+
               É saber e ainda assim
               <span>travar na hora de decidir.</span>
+
             </div>
 
           </div>
 
 
+
           <div class="pain-list">
+
 
             <div class="pain">
 
@@ -1213,11 +1406,13 @@
                 01
               </div>
 
+
               <div>
 
                 <strong>
                   Você lembra do medicamento, mas não da decisão.
                 </strong>
+
 
                 <p>
                   Sabe qual fármaco existe, mas precisa lembrar indicação,
@@ -1229,17 +1424,20 @@
             </div>
 
 
+
             <div class="pain">
 
               <div class="pain-number">
                 02
               </div>
 
+
               <div>
 
                 <strong>
                   A regra quase nunca vem sozinha.
                 </strong>
+
 
                 <p>
                   Condições associadas, sinais de gravidade, exceções e
@@ -1251,17 +1449,20 @@
             </div>
 
 
+
             <div class="pain">
 
               <div class="pain-number">
                 03
               </div>
 
+
               <div>
 
                 <strong>
                   No plantão, tempo também é uma variável clínica.
                 </strong>
+
 
                 <p>
                   Quando a dúvida aparece, você precisa encontrar a informação
@@ -1272,9 +1473,11 @@
 
             </div>
 
+
           </div>
 
         </div>
+
 
 
         <div class="problem-transition">
@@ -1290,16 +1493,22 @@
     </section>
 
 
-    <!-- PILLARS -->
+
+    <!-- =========================
+         PILLARS
+    ========================= -->
+
     <section class="pillars" id="conteudo">
 
       <div class="container">
+
 
         <div class="section-head">
 
           <div class="section-kicker">
             Estrutura do manual
           </div>
+
 
           <h2 class="section-title">
             Cinco perguntas que uma boa conduta precisa responder.
@@ -1308,7 +1517,9 @@
         </div>
 
 
+
         <div class="pillar-grid">
+
 
           <div class="pillar">
 
@@ -1316,9 +1527,11 @@
               01
             </div>
 
+
             <h3>
               Diagnóstico
             </h3>
+
 
             <p>
               O que devo pensar e quais informações ajudam a confirmar a hipótese?
@@ -1327,15 +1540,18 @@
           </div>
 
 
+
           <div class="pillar">
 
             <div class="pillar-number">
               02
             </div>
 
+
             <h3>
               Conduta
             </h3>
+
 
             <p>
               O que precisa ser feito agora e quais decisões mudam o caminho?
@@ -1344,15 +1560,18 @@
           </div>
 
 
+
           <div class="pillar">
 
             <div class="pillar-number">
               03
             </div>
 
+
             <h3>
               Atenção
             </h3>
+
 
             <p>
               Quais sinais de alerta, contraindicações ou situações especiais importam?
@@ -1361,15 +1580,18 @@
           </div>
 
 
+
           <div class="pillar">
 
             <div class="pillar-number">
               04
             </div>
 
+
             <h3>
               Exames e encaminhamento
             </h3>
+
 
             <p>
               Quando investigar, acompanhar, encaminhar ou reavaliar?
@@ -1378,21 +1600,25 @@
           </div>
 
 
+
           <div class="pillar">
 
             <div class="pillar-number">
               05
             </div>
 
+
             <h3>
               Prescrição
             </h3>
+
 
             <p>
               Como transformar a decisão em uma orientação prática?
             </p>
 
           </div>
+
 
         </div>
 
@@ -1401,12 +1627,18 @@
     </section>
 
 
-    <!-- SAMPLE -->
+
+    <!-- =========================
+         SAMPLE
+    ========================= -->
+
     <section class="sample">
 
       <div class="container">
 
+
         <div class="sample-header">
+
 
           <div>
 
@@ -1414,23 +1646,29 @@
               UM VERBETE COMPLETO DO MANUAL
             </div>
 
+
             <h2 class="section-title">
               Antes de comprar, veja exatamente o que você está levando.
             </h2>
 
           </div>
 
+
           <p class="sample-note">
+
             Abaixo está um verbete completo do manual. Não é uma versão
             resumida da proposta: é uma demonstração de como o conteúdo é
             organizado para transformar uma condição clínica em uma sequência
             de decisão prática.
+
           </p>
 
         </div>
 
 
+
         <div class="sample-panel">
+
 
           <div class="sample-top">
 
@@ -1439,6 +1677,7 @@
               <small>
                 Exemplo de verbete
               </small>
+
 
               <h3>
                 Dengue
@@ -1449,15 +1688,19 @@
           </div>
 
 
+
           <div class="sample-body">
 
+
             <div class="sample-grid">
+
 
               <div class="sample-item">
 
                 <h4>
                   Quando pensar em prescrever
                 </h4>
+
 
                 <p>
                   Síndrome febril aguda em contexto compatível, com classificação
@@ -1467,11 +1710,13 @@
               </div>
 
 
+
               <div class="sample-item">
 
                 <h4>
                   Diagnóstico
                 </h4>
+
 
                 <p>
                   Avaliar história clínica, exame físico, tempo de evolução,
@@ -1481,11 +1726,13 @@
               </div>
 
 
+
               <div class="sample-item">
 
                 <h4>
                   Conduta
                 </h4>
+
 
                 <p>
                   A conduta depende da classificação clínica, presença de sinais
@@ -1495,11 +1742,13 @@
               </div>
 
 
+
               <div class="sample-item">
 
                 <h4>
                   Atenção
                 </h4>
+
 
                 <p>
                   Observar sinais de alarme, alterações clínicas progressivas
@@ -1509,11 +1758,13 @@
               </div>
 
 
+
               <div class="sample-item">
 
                 <h4>
                   Exames e acompanhamento
                 </h4>
+
 
                 <p>
                   A necessidade de exames e reavaliação deve ser determinada
@@ -1523,11 +1774,13 @@
               </div>
 
 
+
               <div class="sample-item">
 
                 <h4>
                   Encaminhamento
                 </h4>
+
 
                 <p>
                   Pacientes com sinais de alarme ou condições que exijam
@@ -1536,7 +1789,9 @@
 
               </div>
 
+
             </div>
+
 
 
             <div class="prescription">
@@ -1545,10 +1800,12 @@
                 Exemplo de prescrição
               </h4>
 
+
               <p>
                 <strong>Paracetamol:</strong>
                 administrar conforme peso/faixa etária e limites de dose recomendados.
               </p>
+
 
               <p>
                 <strong>Hidratação oral:</strong>
@@ -1558,9 +1815,11 @@
             </div>
 
 
+
             <div class="source-line">
               Fonte de referência: Ministério da Saúde.
             </div>
+
 
           </div>
 
@@ -1571,18 +1830,25 @@
     </section>
 
 
-    <!-- SCOPE -->
+
+    <!-- =========================
+         SCOPE
+    ========================= -->
+
     <section class="scope">
 
       <div class="container">
 
+
         <div class="scope-stat">
+
 
           <div>
 
             <div class="big-number">
               111
             </div>
+
 
             <div class="big-number-label">
               condutas organizadas para consulta prática
@@ -1597,10 +1863,13 @@
               O que está dentro
             </div>
 
+
             <p class="scope-description">
+
               O manual reúne conteúdos organizados para que você consiga
               percorrer o raciocínio clínico de forma objetiva, da identificação
               da condição até a orientação prática.
+
             </p>
 
           </div>
@@ -1608,13 +1877,16 @@
         </div>
 
 
+
         <div class="scope-grid">
+
 
           <div class="scope-card">
 
             <h3>
               Clínica Médica
             </h3>
+
 
             <p>
               Condições frequentes da prática clínica, organizadas para consulta
@@ -1624,11 +1896,13 @@
           </div>
 
 
+
           <div class="scope-card">
 
             <h3>
               Pediatria
             </h3>
+
 
             <p>
               Situações clínicas relevantes da prática pediátrica e seus
@@ -1638,11 +1912,13 @@
           </div>
 
 
+
           <div class="scope-card">
 
             <h3>
               Ginecologia e Obstetrícia
             </h3>
+
 
             <p>
               Condutas organizadas para situações frequentes em ginecologia
@@ -1652,11 +1928,13 @@
           </div>
 
 
+
           <div class="scope-card">
 
             <h3>
               Cirurgia Geral
             </h3>
+
 
             <p>
               Abordagem prática de condições cirúrgicas e situações que exigem
@@ -1666,61 +1944,83 @@
           </div>
 
 
+
           <div class="scope-card full">
 
             <h3>
               + 4 anexos de referência rápida
             </h3>
 
+
             <p>
               Materiais complementares para consulta durante o estudo e
               revisão das principais decisões.
             </p>
 
+
             <div class="annexes">
+
 
               <div class="annex">
                 Fórmulas e escores
               </div>
 
+
               <div class="annex">
                 Interações medicamentosas de alto risco
               </div>
+
 
               <div class="annex">
                 Efeitos adversos por classe
               </div>
 
+
               <div class="annex">
                 Toxidromes e intoxicações
               </div>
+
 
             </div>
 
           </div>
 
+
         </div>
 
 
-        <div style="margin-top:18px; color:var(--muted); font-size:13px;">
+        <div
+          style="
+            margin-top:18px;
+            color:var(--muted);
+            font-size:13px;
+          "
+        >
           100% do sumário é clicável para facilitar a navegação pelo PDF.
         </div>
+
 
       </div>
 
     </section>
 
 
-    <!-- FOR WHO -->
+
+    <!-- =========================
+         FOR WHO
+    ========================= -->
+
     <section class="for-who">
 
       <div class="container">
+
 
         <div class="section-head">
 
           <div class="section-kicker">
             Feito para quem
           </div>
+
 
           <h2 class="section-title">
             Para quem precisa transformar conhecimento em decisão.
@@ -1729,39 +2029,49 @@
         </div>
 
 
+
         <div class="audience">
+
 
           <span>
             Interno no último ano
           </span>
 
+
           <span>
             Ciclo Clínico
           </span>
+
 
           <span>
             Residente de primeiro ano
           </span>
 
+
           <span>
             Plantonista de UPA/PS
           </span>
+
 
           <span>
             Clínico geral
           </span>
 
+
           <span>
             Profissionais da saúde
           </span>
+
 
           <span>
             Quem revisa para residência
           </span>
 
+
           <span>
             Quem busca mais segurança nos estudos e na decisão clínica
           </span>
+
 
         </div>
 
@@ -1770,10 +2080,15 @@
     </section>
 
 
-    <!-- SOURCES -->
+
+    <!-- =========================
+         SOURCES
+    ========================= -->
+
     <section class="sources">
 
       <div class="container">
+
 
         <div class="section-head">
 
@@ -1781,51 +2096,65 @@
             Referências
           </div>
 
+
           <h2 class="section-title">
             Conteúdo construído a partir de referências reconhecidas.
           </h2>
 
+
           <p class="section-intro">
+
             As condutas foram organizadas com base em diretrizes, protocolos
             e referências utilizadas na prática clínica e na formação médica.
+
           </p>
 
         </div>
 
 
+
         <div class="source-list">
+
 
           <div class="source-pill">
             Ministério da Saúde
           </div>
 
+
           <div class="source-pill">
             Sociedade Brasileira de Cardiologia
           </div>
+
 
           <div class="source-pill">
             Sociedade Brasileira de Diabetes
           </div>
 
+
           <div class="source-pill">
             Febrasgo
           </div>
+
 
           <div class="source-pill">
             American College of Physicians
           </div>
 
+
           <div class="source-pill">
             World Society of Emergency Surgery
           </div>
+
 
           <div class="source-pill">
             International League Against Epilepsy
           </div>
 
+
           <div class="source-pill">
             Outras diretrizes e referências específicas
           </div>
+
 
         </div>
 
@@ -1834,12 +2163,18 @@
     </section>
 
 
-    <!-- PRICE -->
+
+    <!-- =========================
+         PRICE
+    ========================= -->
+
     <section class="price-section" id="preco">
 
       <div class="container">
 
+
         <div class="price-box">
+
 
           <div class="price-content">
 
@@ -1847,9 +2182,11 @@
               Acesso imediato
             </div>
 
+
             <h2>
               No próximo plantão, tenha o raciocínio organizado antes da dúvida aparecer.
             </h2>
+
 
             <p>
               Um material de consulta prática para estudo, revisão e apoio
@@ -1859,11 +2196,14 @@
           </div>
 
 
+
           <div class="price-card">
+
 
             <div class="old-price">
               De R$ 47
             </div>
+
 
             <div class="price">
 
@@ -1871,11 +2211,13 @@
                 R$
               </small>
 
+
               <strong>
                 27
               </strong>
 
             </div>
+
 
             <a
               href="https://pay.hotmart.com/F107709306H"
@@ -1884,9 +2226,11 @@
               Quero meu Manual de Prescrição MEDx →
             </a>
 
+
             <div class="guarantee">
               Compra protegida · 7 dias de garantia
             </div>
+
 
           </div>
 
@@ -1897,16 +2241,22 @@
     </section>
 
 
-    <!-- FAQ -->
+
+    <!-- =========================
+         FAQ
+    ========================= -->
+
     <section class="faq">
 
       <div class="container">
+
 
         <div class="section-head">
 
           <div class="section-kicker">
             Dúvidas frequentes
           </div>
+
 
           <h2 class="section-title">
             Antes de comprar.
@@ -1915,13 +2265,16 @@
         </div>
 
 
+
         <div class="faq-list">
+
 
           <details>
 
             <summary>
               Como recebo o manual?
             </summary>
+
 
             <p>
               O Manual de Prescrição MEDx é um produto digital em PDF.
@@ -1932,11 +2285,13 @@
           </details>
 
 
+
           <details>
 
             <summary>
               Posso acessar pelo celular?
             </summary>
+
 
             <p>
               Sim. O material foi pensado para ser utilizado em celular,
@@ -1946,11 +2301,13 @@
           </details>
 
 
+
           <details>
 
             <summary>
               O manual será atualizado?
             </summary>
+
 
             <p>
               A MEDx poderá disponibilizar atualizações do material conforme
@@ -1961,11 +2318,13 @@
           </details>
 
 
+
           <details>
 
             <summary>
               O manual substitui a avaliação clínica?
             </summary>
+
 
             <p>
               Não. O material é educacional e foi desenvolvido para organização
@@ -1977,11 +2336,13 @@
           </details>
 
 
+
           <details>
 
             <summary>
               Posso desistir da compra?
             </summary>
+
 
             <p>
               Sim. A compra conta com 7 dias de garantia, conforme as condições
@@ -1991,11 +2352,13 @@
           </details>
 
 
+
           <details>
 
             <summary>
               É útil para quem está estudando para residência?
             </summary>
+
 
             <p>
               Sim. Além da consulta prática, a organização das condutas pode
@@ -2005,25 +2368,34 @@
 
           </details>
 
+
         </div>
 
       </div>
 
     </section>
 
+
   </main>
 
 
-  <!-- FOOTER -->
+
+  <!-- =========================
+       FOOTER
+  ========================= -->
+
   <footer>
 
     <div class="container">
 
+
       <div class="footer-top">
+
 
         <div class="footer-brand">
           <span>MEDx</span>
         </div>
+
 
         <div class="footer-info">
 
@@ -2045,24 +2417,31 @@
 
         </div>
 
+
       </div>
 
 
+
       <div class="footer-bottom">
+
 
         <div>
           © 2026 MEDx. Todos os direitos reservados.
         </div>
 
+
         <div>
           Manual de Prescrição MEDx
         </div>
 
+
       </div>
+
 
     </div>
 
   </footer>
+
 
 </body>
 </html>
