@@ -105,9 +105,31 @@
     }
 
     .header-link {
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      min-height: 38px;
+      padding: 0 14px;
+      border: 1px solid rgba(20,218,152,.28);
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .02em;
+      color: var(--white);
+      background: rgba(20,218,152,.055);
+      transition: border-color .2s ease, background .2s ease, transform .2s ease;
+    }
+
+    .header-link b {
+      color: var(--green);
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .header-link:hover {
+      border-color: rgba(20,218,152,.58);
+      background: rgba(20,218,152,.10);
+      transform: translateY(-1px);
     }
 
     /* =========================
@@ -220,6 +242,32 @@
     .btn-primary {
       background: var(--green);
       color: #06100C;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn-secondary {
+      min-height: 54px;
+      border: 1px solid rgba(255,255,255,.16);
+      background: rgba(255,255,255,.025);
+      color: #DCE5E0;
+      font-weight: 600;
+    }
+
+    .btn-secondary span {
+      margin-left: 8px;
+      color: var(--green);
+      font-size: 15px;
+    }
+
+    .btn-secondary:hover {
+      border-color: rgba(20,218,152,.35);
+      background: rgba(20,218,152,.055);
     }
 
     .hero-note {
@@ -389,6 +437,68 @@
       color: var(--muted);
       font-size: 12px;
       line-height: 1.65;
+    }
+
+    .sample-card-secondary {
+      position: relative;
+    }
+
+    .sample-more summary {
+      display: none;
+    }
+
+    .sample-more-content {
+      display: block;
+    }
+
+    .sample-more-content .sample-item:first-child {
+      border-top: 1px solid var(--line);
+    }
+
+    @media (max-width: 800px) {
+      .hero-actions {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .hero-actions .btn {
+        width: 100%;
+      }
+
+      .sample-card-secondary .sample-more summary {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 48px;
+        margin: 4px 0 8px;
+        padding: 0 12px;
+        border: 1px solid rgba(20,218,152,.20);
+        border-radius: 6px;
+        color: #DDE5E0;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: .02em;
+        cursor: pointer;
+        list-style: none;
+      }
+
+      .sample-card-secondary .sample-more summary::-webkit-details-marker {
+        display: none;
+      }
+
+      .sample-card-secondary .sample-more summary span {
+        color: var(--green);
+        font-size: 17px;
+        font-weight: 400;
+      }
+
+      .sample-more-content {
+        display: none;
+      }
+
+      .sample-more[open] .sample-more-content {
+        display: block;
+      }
     }
 
     .prescription {
@@ -931,6 +1041,16 @@
         grid-template-columns: 1fr;
       }
 
+      .header-link {
+        min-height: 36px;
+        padding: 0 11px;
+        font-size: 10px;
+      }
+
+      .header-link b {
+        font-size: 13px;
+      }
+
       .sticky-cta {
         display: block;
         position: fixed;
@@ -969,7 +1089,7 @@
       </div>
 
       <a href="#comprar" class="header-link">
-        Manual de Prescrição
+        <span>Manual de Prescrição</span><b aria-hidden="true">→</b>
       </a>
     </div>
   </header>
@@ -1012,14 +1132,21 @@
           <span>Prescrição</span>
         </div>
 
-        <a
-          href="https://pay.hotmart.com/F107709306H"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="btn btn-primary"
-        >
-          Quero ter o manual no próximo plantão →
-        </a>
+        <div class="hero-actions">
+          <a
+            href="https://pay.hotmart.com/F107709306H"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-primary"
+            data-cta="hero_primary"
+          >
+            Quero ter o manual no próximo plantão →
+          </a>
+
+          <a href="#exemplo" class="btn btn-secondary" data-cta="hero_example">
+            Ver um exemplo real <span aria-hidden="true">↓</span>
+          </a>
+        </div>
 
         <div class="hero-note">
           Acesso imediato após a confirmação. PDF para celular, tablet e computador.
@@ -1197,7 +1324,7 @@
          SAMPLE
     ========================= -->
 
-    <section>
+    <section id="exemplo">
       <div class="container">
 
         <div class="section-label">
@@ -1263,11 +1390,15 @@
           </div>
 
 
-          <div class="sample-card">
+          <div class="sample-card sample-card-secondary">
 
             <div class="sample-tag">
               O que você encontra
             </div>
+
+            <details class="sample-more">
+              <summary>Ver o exemplo completo <span aria-hidden="true">+</span></summary>
+              <div class="sample-more-content">
 
             <div class="sample-item">
               <strong>Ajuste</strong>
@@ -1358,6 +1489,8 @@
               </p>
 
             </div>
+              </div>
+            </details>
 
           </div>
 
@@ -1372,8 +1505,7 @@
             Quero consultar o Manual →
           </a>
           <div class="micro-proof" style="margin-left:auto;margin-right:auto;">
-            A decisão de compra fica mais simples quando você consegue visualizar o material antes.
-            Aqui você já viu a estrutura e um exemplo de como o conteúdo é organizado.
+            111 condições · consulta rápida · exemplos de prescrição
           </div>
         </div>
 
@@ -1776,6 +1908,14 @@
               value: 27,
               cta_location: link.dataset.cta || 'unknown'
             });
+          }
+        });
+      });
+
+      document.querySelectorAll('[data-cta=\"hero_example\"]').forEach(function (link) {
+        link.addEventListener('click', function () {
+          if (typeof gtag === 'function' && localStorage.getItem(consentKey) === 'granted') {
+            gtag('event', 'view_example', { cta_location: 'hero' });
           }
         });
       });
