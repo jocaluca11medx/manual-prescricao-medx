@@ -2,6 +2,24 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
+  <!-- Google Analytics 4 — MEDx -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      analytics_storage: 'denied',
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      wait_for_update: 500
+    });
+    gtag('js', new Date());
+    gtag('config', 'G-1PGPD7K5L8', {
+      send_page_view: true
+    });
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1PGPD7K5L8"></script>
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Manual de Prescrição MEDx | Raciocínio clínico para a prática</title>
@@ -724,6 +742,217 @@
         text-align: left;
       }
     }
+
+    /* =========================
+       CONVERSION LAYER — mantém o design MEDx
+    ========================= */
+
+    .trust-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      margin-top: 42px;
+      border: 1px solid var(--line);
+      background: var(--line);
+    }
+
+    .trust-item {
+      background: rgba(255,255,255,.018);
+      padding: 17px 18px;
+    }
+
+    .trust-item strong {
+      display: block;
+      color: var(--white);
+      font-size: 11px;
+      margin-bottom: 4px;
+    }
+
+    .trust-item span {
+      color: var(--muted-2);
+      font-size: 10px;
+      line-height: 1.5;
+    }
+
+    .micro-proof {
+      margin-top: 18px;
+      color: #89948D;
+      font-size: 10px;
+      line-height: 1.6;
+      max-width: 680px;
+    }
+
+    .cta-inline {
+      margin-top: 34px;
+    }
+
+    .cta-inline .btn {
+      min-width: 245px;
+    }
+
+    .price-benefits {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px 20px;
+      max-width: 520px;
+      margin: 24px auto 28px;
+      text-align: left;
+    }
+
+    .price-benefits div {
+      color: #C7D1CB;
+      font-size: 11px;
+      line-height: 1.5;
+    }
+
+    .price-benefits div::before {
+      content: "✓";
+      color: var(--green);
+      font-weight: 800;
+      margin-right: 8px;
+    }
+
+    .sticky-cta {
+      display: none;
+    }
+
+    /* CTA fixo: aparência mais editorial e premium, sem competir com a identidade MEDx */
+    .sticky-cta .btn {
+      font-family: "Montserrat", sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .015em;
+      text-transform: none;
+      min-height: 52px;
+      padding: 0 22px;
+      border-radius: 8px;
+      box-shadow: 0 10px 28px rgba(0,0,0,.28);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    .sticky-cta .btn::after {
+      content: "→";
+      margin-left: 9px;
+      font-size: 15px;
+      font-weight: 500;
+      line-height: 1;
+    }
+
+    .sticky-cta .btn:hover {
+      transform: translateY(-1px);
+      opacity: 1;
+      box-shadow: 0 12px 32px rgba(0,0,0,.34);
+    }
+
+    .faq-item {
+      cursor: pointer;
+    }
+
+    .faq-item h3::after {
+      content: "+";
+      float: right;
+      color: var(--green);
+      font-size: 18px;
+      font-weight: 500;
+      transition: transform .2s ease;
+    }
+
+    .faq-item p {
+      display: none;
+      margin-top: 8px;
+    }
+
+    .faq-item.open p {
+      display: block;
+    }
+
+    .faq-item.open h3::after {
+      transform: rotate(45deg);
+    }
+
+    .consent-banner {
+      position: fixed;
+      z-index: 9999;
+      left: 20px;
+      right: 20px;
+      bottom: 20px;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 18px 20px;
+      border: 1px solid rgba(20,218,152,.24);
+      border-radius: 10px;
+      background: rgba(7,16,13,.97);
+      box-shadow: 0 14px 50px rgba(0,0,0,.35);
+      display: none;
+    }
+
+    .consent-banner p {
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.6;
+      margin-bottom: 12px;
+    }
+
+    .consent-actions {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .consent-actions button {
+      border: 0;
+      cursor: pointer;
+      border-radius: 6px;
+      min-height: 38px;
+      padding: 0 15px;
+      font-family: inherit;
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .consent-accept {
+      background: var(--green);
+      color: #06100C;
+    }
+
+    .consent-reject {
+      background: transparent;
+      color: var(--muted);
+      border: 1px solid var(--line) !important;
+    }
+
+    @media (max-width: 800px) {
+      .trust-strip {
+        grid-template-columns: 1fr;
+      }
+
+      .price-benefits {
+        grid-template-columns: 1fr;
+      }
+
+      .sticky-cta {
+        display: block;
+        position: fixed;
+        z-index: 9990;
+        left: 12px;
+        right: 12px;
+        bottom: 12px;
+      }
+
+      .sticky-cta .btn {
+        width: 100%;
+        min-height: 52px;
+        box-shadow: 0 10px 30px rgba(0,0,0,.28);
+      }
+
+      .consent-banner {
+        left: 12px;
+        right: 12px;
+        bottom: 74px;
+      }
+    }
+
   </style>
 </head>
 
@@ -794,6 +1023,21 @@
 
         <div class="hero-note">
           Acesso imediato após a confirmação. PDF para celular, tablet e computador.
+        </div>
+
+        <div class="trust-strip" aria-label="Benefícios principais">
+          <div class="trust-item">
+            <strong>111 condições</strong>
+            <span>Conteúdo organizado para consulta prática.</span>
+          </div>
+          <div class="trust-item">
+            <strong>Consulta rápida</strong>
+            <span>Diagnóstico → conduta → dose → atenção → prescrição.</span>
+          </div>
+          <div class="trust-item">
+            <strong>7 dias de garantia</strong>
+            <span>Compra protegida pela garantia informada na oferta.</span>
+          </div>
         </div>
 
       </div>
@@ -1119,6 +1363,20 @@
 
         </div>
 
+        <div class="cta-inline" style="text-align:center;">
+          <a href="https://pay.hotmart.com/F107709306H"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="btn btn-primary"
+             data-cta="sample_midpage">
+            Quero consultar o Manual →
+          </a>
+          <div class="micro-proof" style="margin-left:auto;margin-right:auto;">
+            A decisão de compra fica mais simples quando você consegue visualizar o material antes.
+            Aqui você já viu a estrutura e um exemplo de como o conteúdo é organizado.
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -1326,6 +1584,13 @@
             preço de lançamento
           </div>
 
+          <div class="price-benefits">
+            <div>111 condições organizadas</div>
+            <div>Exemplos de prescrição</div>
+            <div>Consulta no celular, tablet ou computador</div>
+            <div>7 dias de garantia</div>
+          </div>
+
           <a
             href="https://pay.hotmart.com/F107709306H"
             target="_blank"
@@ -1429,6 +1694,16 @@
        FOOTER
   ========================= -->
 
+  <div class="sticky-cta">
+    <a href="https://pay.hotmart.com/F107709306H"
+       target="_blank"
+       rel="noopener noreferrer"
+       class="btn btn-primary"
+       data-cta="sticky_mobile">
+      Acessar o Manual — R$ 27
+    </a>
+  </div>
+
   <footer>
 
     <div class="container footer-inner">
@@ -1447,6 +1722,94 @@
     </div>
 
   </footer>
+
+
+  <div class="consent-banner" id="consentBanner" role="dialog" aria-label="Preferências de cookies">
+    <p>
+      Usamos cookies de análise para entender como a página é utilizada e melhorar sua experiência.
+      Você pode aceitar ou recusar essa medição. A recusa não impede a compra.
+    </p>
+    <div class="consent-actions">
+      <button class="consent-accept" id="acceptAnalytics">Aceitar análise</button>
+      <button class="consent-reject" id="rejectAnalytics">Recusar</button>
+    </div>
+  </div>
+
+  <script>
+    // =========================
+    // MEDx — Analytics + UX
+    // =========================
+    (function () {
+      const banner = document.getElementById('consentBanner');
+      const consentKey = 'medx_analytics_consent';
+
+      function setConsent(value) {
+        localStorage.setItem(consentKey, value);
+        if (typeof gtag === 'function') {
+          gtag('consent', 'update', {
+            analytics_storage: value === 'granted' ? 'granted' : 'denied',
+            ad_storage: 'denied',
+            ad_user_data: 'denied',
+            ad_personalization: 'denied'
+          });
+        }
+        if (banner) banner.style.display = 'none';
+      }
+
+      const savedConsent = localStorage.getItem(consentKey);
+      if (!savedConsent && banner) banner.style.display = 'block';
+
+      document.getElementById('acceptAnalytics')?.addEventListener('click', function () {
+        setConsent('granted');
+      });
+
+      document.getElementById('rejectAnalytics')?.addEventListener('click', function () {
+        setConsent('denied');
+      });
+
+      // Rastreamento dos principais pontos de intenção.
+      document.querySelectorAll('a[href*="pay.hotmart.com"]').forEach(function (link) {
+        link.addEventListener('click', function () {
+          if (typeof gtag === 'function' && localStorage.getItem(consentKey) === 'granted') {
+            gtag('event', 'begin_checkout', {
+              currency: 'BRL',
+              value: 27,
+              cta_location: link.dataset.cta || 'unknown'
+            });
+          }
+        });
+      });
+
+      // FAQ expansível: reduz carga visual e deixa a objeção acessível.
+      document.querySelectorAll('.faq-item').forEach(function (item) {
+        const title = item.querySelector('h3');
+        title?.addEventListener('click', function () {
+          item.classList.toggle('open');
+          if (typeof gtag === 'function' && localStorage.getItem(consentKey) === 'granted') {
+            gtag('event', 'faq_open', {
+              question: title.textContent.trim()
+            });
+          }
+        });
+      });
+
+      // Profundidade de rolagem — útil para descobrir onde a página perde atenção.
+      const sent = {};
+      [25, 50, 75, 90].forEach(function (threshold) {
+        window.addEventListener('scroll', function () {
+          const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+          if (!scrollable) return;
+          const percent = Math.round((window.scrollY / scrollable) * 100);
+          if (percent >= threshold && !sent[threshold]) {
+            sent[threshold] = true;
+            if (typeof gtag === 'function' && localStorage.getItem(consentKey) === 'granted') {
+              gtag('event', 'scroll_depth', { percent_scrolled: threshold });
+            }
+          }
+        }, { passive: true });
+      });
+    })();
+  </script>
 
 </body>
 </html>
